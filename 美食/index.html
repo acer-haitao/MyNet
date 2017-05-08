@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>chihuoi</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<script src="js/common.js"></script>
+<script src="js/component.js"></script>
+<script src="js/json2.js"></script>
+<script src="js/ajax.js"></script>
+<script type="text/javascript">
+$(function(){
+	var partArr = [
+		{attr:['家常','西式','川菜','闽菜','鲁菜','粤菜','苏菜','浙菜','湘菜','徽菜']},
+		{attr:['猪肉类','牛肉类','羊肉类','禽蛋类','奶制品','水产类','蔬菜类','瓜果类','菌菇类','根茎类','坚果类','豆类','豆制品','米面类','西点类','药材类','其他']},
+		{attr:['未知','简单','普通','高级','神级']},
+		{attr:['十分钟','廿分钟','半小时','三刻钟','一小时','数小时','一天','数天']},
+		{attr:['微辣','中辣','超辣','麻辣','酸辣','酸甜','酸咸','咸鲜','咸甜','甜味','苦味','原味','清淡','五香','鱼香','葱香','蒜香','奶香','酱香','糟香','咖喱','孜然','果味','香草','怪味','其它']}
+	]
+	var nLi = $($('mainav'),'li');
+	var nA = $($('mainav'),'a');
+	var nImg = $($('mainav'),'img');
+	var aLi = $($('scenario'),'li');
+	var aA = $($('scenario'),'a');
+	var aImg = $($('scenario'),'img');
+	var docH = document.documentElement.clientHeight || document.body.clientHeight;
+	var docW = document.documentElement.clientWidth || document.body.clientWidth;
+	var aUl = $($('foodshow'),'ul');
+	var fLi = $($('foodshow'),'li');
+	var fImg = $($('foodshow'),'img');
+	
+	if(document.body.clientWidth<980 || document.documentElement.clientWidth<980){
+		document.body.style.width = '980px';
+	}
+	if(docH<500){
+		docH = 500;
+	}
+	//导航部分
+	for(var i=0;i<nA.length-2;i++){
+		nA[i].index = i;
+		nA[i].onmouseover = function(){
+			for(var i=0;i<nImg.length;i++){
+				nImg[i]&&clearInterval(nImg[i].iTimer);
+				nImg[i]&&(nImg[i].style.left = '130px');
+			}
+			action(nImg[this.index],{left:118});
+		}
+	}
+	nA[1].onclick = nA[2].onclick = function(){
+		alert('仍在准备中...')
+	};
+	$('mainav').onmouseout = function(){
+		for(var i=0;i<nImg.length;i++){
+			clearInterval(nImg[i].iTimer);
+			nImg[i].style.left = '130px';
+			if(nLi[i].className == 'current'){
+				action(nImg[i-1],{left:118});
+			}
+		}
+	};
+	var logRe = $($('sidebar'),'div')[0];
+	$(logRe,'a')[1].onclick = function(){
+		action($(logRe,'div')[0],{width:576});
+	};
+	$(logRe,'a')[0].onmouseover = function(){
+		$('img').style.zIndex = '0';
+		$('me').style.zIndex = '8';
+		action($('me'),{right:50});
+		action($('img'),{right:-400});
+	};
+	$(logRe,'a')[0].onmouseout = function(){
+		$('me').style.zIndex = '0';
+		$('img').style.zIndex = '3';
+		action($('me'),{right:-400});
+		action($('img'),{right:50});
+	};
+	$(logRe,'span')[0].onclick = function(){
+		this.parentNode.style.width = 0;
+	};
+	nA[3].onclick = function(){  //寻实惠
+		var pop1 = new Popup($('finds'));
+		pop1.init({
+			pos:'center',
+			title:'',
+			moveIn:true
+		});
+		pop1.topClose();
+		pop1.mast();
+		pop1.moveIn();
+	};
+	window.onresize = function(){  //窗口大小改变时 改变部分元素高
+		var imgarr = [];
+		for(var i=0;i<fLi.length;i++){
+			imgarr.push(fLi[i].getElementsByTagName('img')[0]);
+		}
+		docH = document.documentElement.clientHeight || document.body.clientHeight;
+		if(docH<460){
+			docH = 460;
+		}
+		for(var i=0;i<aImg.length;i++){
+			$('foodshow').style.height = $('sidebar').style.height = aLi[i].style.height = aImg[i].style.height = docH + 'px';
+			aImg[i].style.left = (aLi[i].clientWidth - aImg[i].offsetWidth) / 2 + 'px';
+			aA[i].style.lineHeight = docH-docH/12+'px';
+		}
+		for(var i=0;i<imgarr.length;i++){
+			fLi[i].style.height = imgarr[i].style.height = docH + 'px';
+		}
+		for(var i=0;i<aUl.length;i++){
+			var cLi = getByClass(aUl[i],'li','current')[0];
+			cLi&&(aUl[i].style.left=-cLi.offsetLeft+'px');
+		}
+		$('myfoods').style.left = veiwWidth()-$('myfoods').offsetWidth - 226 + 'px';
+		$('myfoods').style.top = veiwHeight()-$('myfoods').offsetHeight + 'px';
+	};
+	for(var i=0;i<aImg.length;i++){
+		aA[i].index = aLi[i].index = i;
+		aLi[i].toload = true;
+		aLi[i].style.height = aImg[i].style.height = docH + 'px';
+		aA[i].style.lineHeight = docH-docH/12+'px';
+		aLi[i].onmouseover = function(){
+			clearInterval(this.children[1].iTimer);
+			this.children[1].style.opacity = 0.7;
+			this.children[1].style.filter = 'alpha(opacity = 70)';
+			this.children[1].style.display = 'block';
+		}
+		aLi[i].onmouseout = function(){
+			var This = this;
+			action(this.children[1],{opacity:0},function(){
+				This.children[1].style.display = 'none';
+			})
+		}
+		aLi[i].onclick = function(){
+			action($('scenario'),{opacity:0},function(){
+				$('scenario').style.display = 'none';
+				$('foodshow').style.display = 'block';
+				$('foodshow').style.opacity = '1';
+				$('foodshow').style.filter = 'alpha(opacity = 100)';
+			});
+			for(var i=0;i<aUl.length;i++){
+				aUl[i].style.display = 'none';
+			}
+			aUl[this.index].style.display = 'block';
+			control(aUl[this.index]);
+			if(aLi[this.index].toload){
+				loading($('load'));
+				showlist(aUl[this.index],this.index)
+			}
+			aLi[this.index].toload = false;
+		}
+	}
+	$('sidebar').style.height = $('foodshow').style.height = docH + 'px';
+	
+	loading($('load'));
+	(function (){//加载场景图片列表
+		var n = aLi.length;
+		function loadImg(){
+			n--;
+			aImg[n].src = aImg[n].getAttribute('_src');
+			
+			aImg[n].onload = function(){
+				action(aLi[n],{width:141});
+				aImg[n].style.left = (141 - aImg[n].offsetWidth) / 2 + 'px';
+				if(n>0){
+					loadImg();
+				}else if(n<2){
+					clearInterval($('load').timer);
+					$('load').style.display = 'none';
+				}
+			}
+		}
+		loadImg();
+	})();
+	
+	function showlist(obj,index){  //菜谱列表展示
+		var fLi = obj.getElementsByTagName('li');
+		ajax({
+			url	: 'list.php',
+			dataType:	'json',
+			fn	: function(data){
+				var oFrag = document.createDocumentFragment();
+				var attr = '';
+				if(index == '0'){
+					attr = 'tj';
+				}else if(index == '1'){
+					attr = 'ty';
+				}else if(index == '2'){
+					attr = 'zs';
+				}else if(index == '3'){
+					attr = 'sg';
+				}
+				
+				for(var i=0;i<data[attr].length;i++){
+					var oLi = document.createElement('li');
+					oLi.innerHTML = '<img src="other/'+attr+'/'+data[attr][i].tupian+'" /><h2 class="title" link"'+data[attr][i].link+'"><a target="_blank" href="'+data[attr][i].link+'">'+data[attr][i].name+'</a></h2><div class="opra"><div class="menu"><a href="javascript:;">菜式</a><a href="javascript:;">食材</a><a href="javascript:;">难度</a><a href="javascript:;">时间</a><a href="javascript:;">口味</a><a href="javascript:;">做法</a><a href="javascript:;">加入食谱</a></div></div><div class="showrap"><div class="intro"><span class="dragbar"><em class="close">x</em></span><strong>'+data[attr][i].caishi+'</strong> &nbsp;&nbsp;选择其他类型：</div><div class="intro"><span class="dragbar"><em class="close">x</em></span><strong>'+data[attr][i].shicai+'</strong> &nbsp;&nbsp;选择其他类型：</div><div class="intro"><span class="dragbar"><em class="close">x</em></span><strong>'+data[attr][i].nandu+'</strong> &nbsp;&nbsp;选择其他类型：</div><div class="intro"><span class="dragbar"><em class="close">x</em></span><strong>'+data[attr][i].shijian+'</strong> &nbsp;&nbsp;选择其他类型：</div><div class="intro"><span class="dragbar"><em class="close">x</em></span><strong>'+data[attr][i].kouwei+'</strong> &nbsp;&nbsp;选择其他类型：</div><div class="intro"><span class="dragbar"><em class="close">x</em></span><div class="content"><img src="other/'+attr+'/'+data[attr][i].zuofa+'"</div></div></div>';
+					oFrag.appendChild( oLi );
+					oLi.style.height = veiwHeight() + 'px';
+				}
+				obj.appendChild( oFrag );
+				var aLi = $(obj,'li');
+				var aImg = $(obj,'img');
+				obj.children[0].className = 'current';
+				for(var k=0;k<aLi.length;k++){
+					if(k>aLi.length/4){
+						aImg[k].onload = function(){
+							for(var j=0;j<aLi.length;j++){
+								menu(aLi[j]);
+								clearInterval($('load').timer);
+								$('load').style.display = 'none';
+							}
+						}
+						break;
+					}
+				}
+				var screens = getByClass($('foodshow'),'span','screen');
+				var aStrong = $($('foodshow'),'strong');
+				function screening(){
+					for(var i=0;i<screens.length;i++){
+						screens[i].onclick = function(){
+							for(var k=0;k<aStrong.length;k++){
+								if(this.innerHTML==aStrong[k].innerHTML){
+									var oSpan=document.createElement('span');
+									oSpan.innerHTML = this.innerHTML;
+									oSpan.className = 'showscr';
+									aStrong[k].parentNode.parentNode.parentNode.appendChild(oSpan);
+								}
+							}
+							
+						}
+					}
+				};
+				screening();
+			}
+		});
+	};
+	for(var i=0;i<aUl.length;i++){
+		aUl[i].num=0;
+	}
+	function control(obj){ // 左右按钮
+		var fLi = obj.getElementsByTagName('li');
+		getByClass($('foodshow'),'span','next')[0].style.top = getByClass($('foodshow'),'span','prev')[0].style.top = veiwHeight()/3 +'px';
+		getByClass($('foodshow'),'span','next')[0].onclick = function(){ //下一个
+			if(obj.num==fLi.length-1){
+				return;
+			}
+			pos = 0 - fLi[obj.num+1].offsetLeft;
+			for(var i=0;i<fLi.length;i++){
+				action(fLi[i],{opacity:50});
+				fLi[i].className = '';
+				fLi[i].style.zIndex = '0';
+			}
+			action(fLi[obj.num+1],{opacity:100});
+			action(obj,{left:pos});
+			fLi[obj.num+1].className = 'current';
+			fLi[obj.num+1].style.zIndex = '9'
+			obj.num++;
+		};
+		getByClass($('foodshow'),'span','prev')[0].onclick = function(){ //上一个
+			if(obj.num==0){
+				return;
+			}
+			for(var i=0;i<fLi.length;i++){
+				action(fLi[i],{opacity:50});
+				fLi[i].className = '';
+				fLi[i].style.zIndex = '0';
+			}
+			pos = -fLi[obj.num-1].offsetLeft;
+			action(fLi[obj.num-1],{opacity:100});
+			action(obj,{left:pos});
+			fLi[obj.num-1].className = 'current';
+			fLi[obj.num-1].style.zIndex = '9';
+			obj.num--;
+		};
+	};
+	
+	for(var i=0;i<fLi.length;i++){
+		getByClass($('foodshow'),'div','opra')[i].style.width = docW - 226 + 'px';
+	}
+	
+	getByClass($('foodshow'),'span','close')[0].onclick = function(){  //介绍的关闭按钮
+		action($('foodshow'),{opacity:0},function(){
+			$('foodshow').style.display = 'none';
+		})
+		
+		$('scenario').style.display = 'block';
+		$('scenario').style.opacity = '1';
+		$('scenario').style.filter = 'alpha(opacity = 100)';
+	};
+	function menu(obj){  // 所拥有属性  后台配合可进行筛选
+		var menus = getByClass(obj,'div','menu');
+		var show = getByClass(obj,'div','showrap');
+		for(var i=0;i<menus.length;i++){
+			tab(menus[i],show[i]);
+		}
+		function tab(menu,show){  //tab切换
+			menu.onOff = true;
+			var mA = menu.getElementsByTagName('a');
+			var aDiv = getByClass(show,'div','intro');
+			for(var i=0;i<mA.length-1;i++){
+				mA[i].index = i;
+				mA[i].onclick = function(){
+					for(var i=0;i<aDiv.length;i++){
+						mA[i].className = '';
+						aDiv[i].style.display = 'none';
+						aDiv[i].style.bottom = '-660px'
+					}
+					this.className = 'show';
+					if(aDiv[this.index]){
+						aDiv[this.index].style.display = 'block';
+						action(aDiv[this.index],{bottom:80});
+					}
+				};
+				if(partArr[i]){  //动态添加筛选项
+					for(var j=0;j<partArr[i].attr.length;j++){
+						if(partArr[i].attr[j] != aDiv[i].children[1].innerHTML){
+							var oSpan = document.createElement('span');
+							oSpan.className = 'screen';
+							oSpan.innerHTML = partArr[i].attr[j];
+							aDiv[i].appendChild(oSpan);
+						}
+					}
+				}
+				aDiv[i] && (aDiv[i].style.width = (veiwWidth()-226)*3/5+'px');
+				aDiv[i] && (aDiv[i].style.left = (veiwWidth()-900)/2+'px');
+			}
+			aDiv[0].style.height = aDiv[2].style.height = aDiv[3].style.height = '32px';
+			aDiv[1].style.height = aDiv[4].style.height = '66px';
+			aDiv[5].style.height = '300px';
+			var dragbar = getByClass(show,'span','dragbar');
+	
+			for(var i=0;i<dragbar.length;i++){  //拖拽条
+				dragbar[i].drag = new drag(dragbar[i],dragbar[i].parentNode);
+				dragbar[i].drag.init();
+			}
+			for(var i=0;i<getByClass($('foodshow'),'em','close').length;i++){
+				getByClass($('foodshow'),'em','close')[i].onclick = function(){
+					this.parentNode.parentNode.style.display = 'none';
+				}
+			}
+			
+			mA[mA.length-1].onclick = function(){ //加入食谱按钮
+				if(menu.onOff){	
+					var str = prev(this.parentNode.parentNode).children[0].innerHTML;
+					var links = prev(this.parentNode.parentNode).children[0].getAttribute('href');
+					var oLi = document.createElement('li');
+					var oStrong = document.createElement('strong');
+					var oA = document.createElement('a');
+					oA.href = links;
+					oA.innerHTML = '早餐：'+str;
+					oStrong.appendChild(oA);
+					oLi.appendChild(oStrong);
+					
+					$('mylist').appendChild(oLi);
+					$('myfoods').style.top = $('myfoods').offsetTop-24+'px';
+					$('myfoods').style.height = $('myfoods').offsetHeight+24+'px';
+					$('myfoods').style.padding = 0;
+					oLi.onmouseover = function(){
+						oSpan.style.display = 'block';
+					}
+					oLi.onmouseout = function(){
+						oSpan.style.display = 'none';
+					}
+					action(oLi,{width:200,height:24,left:0,top:0,opacity:100,lineHeight:24},function(){
+						oLi.style.background = 'other/#fff';
+						floatBar.jump();
+						floatBar.shake('left');
+					});
+					menu.onOff=false;
+				}
+			};
+			
+			dragbar[dragbar.length-1].sl = new Sbar(dragbar[dragbar.length-1].parentNode);
+			dragbar[dragbar.length-1].sl.init();
+		}
+	};
+	
+	$('myfoods').style.left = veiwWidth()-$('myfoods').offsetWidth - 226 + 'px';  //我的食谱
+	$($('myfoods'),'input')[0].style.cursor = 'move';
+	var dragFloat = new drag($($('myfoods'),'input')[0],$('myfoods'));
+	var floatBar = new Float($('myfoods'));
+	$($('myfoods'),'input')[1].onclick = function(){
+		floatBar.init({
+			floatjump:true,
+			floatshake:false
+		});
+		floatBar.jump();
+	};
+	$($('myfoods'),'input')[2].onclick = function(){
+		floatBar.init({
+			floatshake:true,
+			floatjump:false
+		});
+		floatBar.shake('left');
+	};
+	
+});
+</script>
+
+</head>
+
+<body>
+<div id="sidebar">
+	<h1 class="logo"><a href="index.html">logo</a></h1>
+    <ul id="mainav">
+    	<li>
+        	<strong>美食DIY</strong>
+            <ul>
+            	<li class="current"><a href="javascript:;">早餐</a><img src="other/navbg_03.gif" /></li>
+            	<li><a href="javascript:;">午餐</a><img src="other/navbg_03.gif" /></li>
+            	<li><a href="javascript:;">晚餐</a><img src="other/navbg_03.gif" /></li>
+            </ul>
+        </li>
+    	<li><strong><a href="#">寻食惠</a></strong></li>
+    	<li><strong><a target="_blank" href="http://cctv.cntv.cn/lm/tiantianyinshi/">美食有影</a></strong></li>
+    </ul>
+    <div class="log_reg">
+        <a href="javascript:;" class="reglink">关于我</a>
+    	<a href="javascript:;" class="loglink">联系我</a>
+        <div class="logbox">
+        	<ul>
+            	<li><label>手机:</label><input type="text" value="18210667320" class="txt" /></li>
+            	<li><label>邮箱:</label><input type="text" value="1213005885@qq.com" class="txt" /></li>
+                <li><input type="submit" class="logBtn" value="查看简历" /></li>
+            </ul>
+            <span class="close">取消</span>
+            <a target="_blank" href="http://sighttp.qq.com/authd?IDKEY=15fdbab1ac83b55f30f9ae57ca86eaf07f36712e5ef6e366"><img align="absmiddle" src="other/imgd?IDKEY=15fdbab1ac83b55f30f9ae57ca86eaf07f36712e5ef6e366&pic=41" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+        </div>
+    </div>
+</div>
+<div id="contain">
+	<div id="scenario">
+        <ul class="morningfoods">
+            <li>
+                <img _src="other/01.jpg" alt="推荐" />
+                <a href="javascript:;">推荐</a>
+            </li>
+            <li>
+                <img _src="other/02.png" alt="汤饮" />
+                <a href="javascript:;">汤饮</a>
+            </li>
+            <li>
+                <img _src="other/00.jpg" alt="主食" />
+                <a href="javascript:;">主食</a>
+            </li>
+            <li>
+                <img _src="other/04.jpg" alt="蔬果" />
+                <a href="javascript:;">蔬果</a>
+            </li>
+        </ul>
+    </div>
+    <div id="foodshow">
+    	<span class="prev"><</span>
+    	<span class="next">></span>
+        <span class="close"><<返回</span>
+    	<ul>
+        	
+        </ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <div id="load"><span></span><span></span><span></span><span></span><span></span><span></span>加载中</div>
+    <div id="myfoods">
+    	<span class="floatbar"></span>
+        <ul id="mylist">
+        	
+        </ul>
+        <input type="button" value="拖拽我" /><input type="button" value="跳跃" /><input type="button" value="抖动" />
+    </div>
+    <div id="me">
+    	<div class="cont">
+        	<img src="other/chihuoi_03.png" />
+            <ul>
+            	<li>男 1989/4/4 </li>
+            	<li>大专学历</li>
+            	<li>现居北京</li>
+            	<li>2012/06 -- 2013/07与北京云祥信息公司(外包)任职网页制作，主要负责网页切图</li>
+            	<li>只要努力，困难终会被你踩在脚下；<br />只要坚信，一切都会变得更加美好；<br />记得感恩，你会看到心连心的力量；<br />记得责任，便会拥有你想要的尊重；</li>
+            </ul>
+            <p class="copy">Copyright © 2013-2017 chihuoi. 校建强 版权所有</p>
+        </div>
+    	<img class="coffee" src="other/coffee_03.png" />
+    </div>
+    <img id="img" src="other/img_03.gif" />
+</div>
+
+<div id="finds">
+    <dl>
+        <dt>寻找美食</dt>
+        <dd><a target="_blank" href="http://www.dianping.com/beijing/food">大众点评网</a></dd>
+        <dd><a target="_blank" href="http://www.fantong.com/">饭统网</a></dd>
+        <dd><a target="_blank" href="http://food.yhd.com/">一号店</a></dd>
+        <dd><a target="_blank" href="http://tuan.baidu.com/local/beijing/canyinmeishi-tg">百度团购</a></dd>
+        <dd><a target="_blank" href="http://beijing.lashou.com/meishi/all">拉手网</a></dd>
+    </dl>
+    <dl>
+        <dt>找点食材</dt>
+        <dd><a target="_blank" href="http://weibo.com/farmersmarketbj">北京有机农夫市集</a></dd>
+        <dd><a target="_blank" href="http://www.womai.com/index-0-0.htm">中粮·我买网</a></dd>
+        <dd><a target="_blank" href="http://food.39.net/pr/scxg/">39饮食频道(食材选购)</a></dd>
+        <dd><a target="_blank" href="http://www.ejlfood.com/">好食材</a></dd>
+    </dl>
+    <dl>
+        <dt>找点厨具</dt>
+        <dd><a target="_blank" href="http://www.taobao.com/go/market/2013/1212/jiehun.php?spm=1.6659421.a214723.16.gZ4uaD#um-xingfu">淘宝</a></dd>
+        <dd><a target="_blank" href="http://www.amazon.cn/%E5%8E%A8%E5%85%B7/b?ie=UTF8&node=813108051">卓越亚马逊</a></dd>
+        <dd><a target="_blank" href="http://www.fotile.com/">方太厨具</a></dd>
+        <dd><a target="_blank" href="http://www.koovoo.com/">中国厨具网</a></dd>
+    </dl>
+    <dl>
+        <dt>增长厨艺</dt>
+        <dd><a target="_blank" href="http://www.xiachufang.com/">下厨房</a></dd>
+        <dd><a target="_blank" href="http://www.douguo.com/">豆果网</a></dd>
+        <dd><a target="_blank" href="http://www.beitaichufang.com/">贝太厨房</a></dd>
+        <dd><a target="_blank" href="http://www.ttmeishi.com/">天天美食</a></dd>
+        <dd><a target="_blank" href="http://www.meishichina.com">美食天下</a></dd>
+        <dd><a target="_blank" href="http://www.meishij.net">美食杰</a></dd>
+        <dd><a target="_blank" href="http://www.eat4.com/">吃四方</a></dd>
+    </dl>
+    <dl>
+        <dt>科学的吃</dt>
+        <dd><a target="_blank" href="http://www.meishichina.com/Health/">美食天下</a></dd>
+        <dd><a target="_blank" href="http://www.meishij.net/jiankang/">美食杰</a></dd>
+        <dd><a target="_blank" href="http://health.enorth.com.cn/sc/">健康之家(食材养生)</a></dd>
+        <dd><a target="_blank" href="http://www.cndzys.com/yssc/">大众养生网</a></dd>
+        <dd><a target="_blank" href="http://www.cnys.com/ysys/">中华养生</a></dd>
+        <dd><a target="_blank" href="http://www.spos.com.cn/">食谱网</a></dd>
+    </dl>
+</div>
+</body>
+</html>

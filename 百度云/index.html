@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>百度云-徐忠元</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/json2.js"></script>
+<style>
+#mybody{
+	box-shadow:2px 2px 5px #000,-2px -2px 5px #000;
+	animation: myfirst 2s;
+	-webkit-animation:myfirst 2s;
+}
+@keyframes myfirst{
+	from {transform:rotate(15deg) scale(0.75); opacity:0};
+	to {transform:rotate(0deg) scale(1); opacity:1};
+}
+@-webkit-keyframes myfirst{
+	from {transform:rotate(15deg) scale(0.75); opacity:0};
+	to {transform:rotate(0deg) scale(1); opacity:1};
+}
+</style>
+<body id="mybody">
+<div id="pan">
+	<!--头部区域-->
+	<div id="hd">   
+		<div class="module-header">
+			<a href="index.html" class="logo"></a>
+			<ul class="nav clearfix">
+				<li>
+                	<a href="javascript:;">
+                        <span>主页</span>
+                        <em class="arrow-ico"></em>
+                  	</a>
+                </li>
+				<li>
+					<a class="active" href="javascript:;">
+						<span>网盘</span>
+						<em style="display:block" class="arrow-ico"></em>
+					</a>
+				</li>
+                <li><a href="javascript:;">
+                        <span>分享</span>
+                        <em class="arrow-ico"></em>
+                  	</a>
+                </li>
+				<li>
+					<a href="javascript:;">
+						<span>应用</span>
+						<em class="arrow-ico"></em>
+					</a>
+				</li>
+				
+			</ul>
+			<ul class="module-header-right" id="headeRight">
+				<li>
+                	<div id="searchBtn"><img src="images/searchBg.jpg" /></div>
+                    <input id="searchWord" type="text" value="搜索你的文件"  />
+                    <ul id="suggestion">
+                    </ul>                   					
+				</li>
+				<li>
+					<a href="javascript:;" id="userId">
+						<span>登录</span>
+						<em></em>
+					</a>
+					<div class="user-channel">
+						<a href="javascript:;">个人资料</a>
+						<a href="javascript:;">购买容量</a>
+						<a href="javascript:;">云冲印</a>
+						<a href="javascript:;">退出</a>
+					</div>
+				</li>
+				<li><a href="javascript:;">会员中心</a></li>
+				<li><a href="javascript:;">客户端下载</a></li>
+				<li><a href="javascript:;">通知</a></li>
+				<li>
+					<a href="javascript:;" class="moreChannel">
+						<span>会员中心</span>
+						<em></em>
+					</a>
+					<div class="other-channel">
+						<a href="javascript:;">开发者中心</a>
+						<a href="javascript:;">收藏工具</a>
+						<a href="javascript:;">版本更新</a>
+						<a href="javascript:;">帮助中心</a>
+						<a href="javascript:;">问题反馈</a>
+						<a href="javascript:;">服务协议</a>
+						<a href="javascript:;">权利声明</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--头部区域结束-->
+	
+	<!--整个主体布局  main & aside-->
+	<div id="bd" class="clearfix">
+		
+		<!--内容区-->
+		<div id="main">
+			<div class="moduleCont" id="panCont">
+				<!--上传、新建、下载模块-->
+				<div class="module-toolbar">
+					<div class="upload-bar clearfix" id="uploadBar">
+						<p id="fileBtn">上传文件<input type="file" /></p>
+						<a href="javascript:;" class="btn active-btn" id="newFloder">新建文件夹</a>
+						<a href="javascript:;" class="btn" id="offlineDown">离线下载</a>
+                        <a href="javascript:;" class="btn active-btn" id="initialize">恢复初始界面</a>
+					</div>
+                    <!--上传进度条-->
+                    <div class="upload_Border" id="uploadBorder">
+                    	<div class="upload_progress"></div>
+                        <span>0%</span>
+                    </div>
+				</div>
+				<!--工上传、新建、下载模块结束-->
+				
+				<!--文件加载信息模块-->
+				<div class="module-crumbs clearfix">
+					<span class="catalog ">全部文件</span>
+				</div>
+				<!--文件加载信息模块 结束-->
+				
+				<!--文件操作模块-->
+				<div class="module-list-toolbar clearfix" id="toolbar"> <!--加了一个ID toolbar-->
+					<span class="chk-box" id="chkAll"></span>
+					<div class="text" id="numSelect">
+                   		<span class="numSelectSpan">已选中：</span>           
+                        <p id="mp">
+                            <span id="selectNum">0</span>
+                        	<span id="selectNum2" >0</span>
+                        </p>
+                        <span class="numSelectSpan2">个文件/文件夹</span> 
+					</div>
+					<a href="javascript:;;" class="btn">分享</a>
+					<a href="javascript:;" class="btn active-btn">下载</a>
+					<a href="javascript:;" class="btn active-btn">删除</a>
+         	 		<a href="javascript:;" class="btn active-btn">修改</a>
+					<a href="javascript:;" class="btn">更多</a>					
+				</div>
+				<!--文件操作模块结束-->
+				<div class="module-grid-view">
+					<div class="file-wrapper clearfix" id="fileWrap">
+                    	<div id="fileContWrap" class="clearfix">
+                            <!--
+                            <div class="item">
+                                <div class="thumb thumb-large">
+                                    <span class="item-chk"></span>
+                                </div>
+                                <div class="file-name">
+                                    <a href="javascript:;">网站PSD模板1</a>                                    
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="thumb thumb-large">
+                                    <span class="item-chk"></span>
+                                </div>
+                                <div class="file-name">
+                                    <a href="javascript:;">网站PSD模板2</a>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb thumb-large">
+                                    <span class="item-chk"></span>
+                                </div>
+                                <div class="file-name">
+                                    <a href="javascript:;">网站PSD模板3</a>
+                                   
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="thumb thumb-large">
+                                    <span class="item-chk"></span>
+                                </div>
+                                <div class="file-name">
+                                    <a href="javascript:;">网站PSD模板4</a>				                
+                                </div>
+                            </div>                            
+                            <div class="item">
+                                <div class="thumb thumb-large" id="ceshi" >                            	
+                                    <span class="item-chk"></span>                                
+                                </div>
+                                <div class="file-name">
+                                    <a href="javascript:;">网站PSD模板5</a>				                
+                                </div>
+                            </div>-->
+                         </div>
+                         
+                         <div id="rightMenu">
+							<ul id="thumbType">
+								<li class="current">
+									<i></i>
+									<span>按缩略图模式</span>
+								</li>
+								<li>
+									<i></i>
+									<span>按列表模式</span>
+								</li>
+							</ul>
+							<ul id="sortToWay">
+								<li class="current">
+									<i></i>
+									<span>按名称排序</span>
+								</li>
+								<li>
+									<i></i>
+									<span>按数字排序</span>
+								</li>
+							</ul>
+							<ul id="r_newFolder" class="operate last">
+								<li>
+									<i></i>
+									<span>新建文件夹</span>
+								</li>
+								<li>
+									<i></i>
+									<span>刷新</span>
+								</li>
+                                <li>
+									<i></i>
+									<span><a href="javascript:;">上传文件</a></span>
+								</li>
+							</ul>
+						</div>
+                        
+                      <!--  <div id="rightMenu2">
+                        	<ul id="">
+								<li class="current">
+									<i></i>
+									<span>重命名</span>
+								</li>
+								<li>
+									<i></i>
+									<span>删除</span>
+								</li>
+                                <li>
+									<i></i>
+									<span>删除</span>
+								</li>
+							</ul>                        	
+                        </div> -->                    
+	        					 			
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--内容区结束-->
+		
+		<!--边栏-->
+		<div class="module-aside" id="leftAside">
+			<ul class="aside-list" id="aside_list">
+				<li>
+					<a href="javascript:;" class="aside-disk">
+						<span class="ico"></span>
+						<span>全部文件</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-image">
+						<span class="ico"></span>
+						<span>图片</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-doc">
+						<span class="ico"></span>
+						<span>文档</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-video">
+						<span class="ico"></span>
+						<span>视频</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-seed">
+						<span class="ico"></span>
+						<span>种子</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="asiede-music">
+						<span class="ico"></span>
+						<span>音乐</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-other">
+						<span class="ico"></span>
+						<span>其他</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-share">
+						<span class="ico"></span>
+						<span>我的分享</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+				<li>
+					<a href="javascript:;" class="aside-recycle">
+						<span class="ico"></span>
+						<span>回收站</span>
+					</a>
+                    <input class="up" type="button" value="" />
+                    <input class="down"  type="button" value="" />
+				</li>
+			</ul>
+            
+            
+			<div class="aside-device">
+				<a href="javascript:;" class="cloud">
+					<span class="ico"></span>
+					<span>云管家</span>
+				</a>
+				<a href="javascript:;" class="andiord">
+					<span class="ico"></span>
+					<span>Andiord</span>
+				</a>
+				<a href="javascript:;" class="iphone">
+					<span class="ico"></span>
+					<span>iphone</span>
+				</a>
+				<a href="javascript:;" class="more-device">
+					<span class="ico"></span>
+					<span>更多</span>
+				</a>
+			</div>
+            
+		</div>
+		<!--边栏结束-->
+	
+	</div>
+	<!--整个主体<bd>布局结束-->
+		
+</div>
+<!--END-->
+
+<!--登陆框-->
+<div class="loginFrame_box" id="loginFrame_box">
+	<h3>登录百度账号</h3>
+    <div class="loginFrame" id="loginInput">
+    	<p class="user_text">用户名：<input type="text" placeholder="请输入正确格式的邮箱" /><span></span></p>
+        <p class="user_password">密&nbsp;&nbsp;&nbsp;码：<input type="password" placeholder="开头不能是数字，长度6~10位" /><span></span></p>
+    </div>
+    <p class="login_checkbox"><input type="checkbox" />下次自动登录</p>
+    <input class="log_submit" type="submit" value="登录" />
+    <div id="msg">
+    	<p>使劲往右推关闭&gt;&gt;</p>
+        <div id="msgMask"></div>
+    </div>
+</div>
+<div id="maskBg"></div>
+<div id="msg2">
+	<p>该项目耗时两周多，用到了js的几个核心功能，如DOM增删改，ajax动态上传，BOM右键自定义菜单，BOM碰撞检测，搜索JsonP跨域调取百度数据，登录框拖拽与浏览器边界检测，regExp匹配用户名，本地存储localstorage，js中的运动等等。所有功能都是用原生JavaScript完成。</p>
+    <p>该项目在浏览器兼容性处理上花了比较多的时间，比如拖拽产生的区域阴影，每个浏览器表现都不尽相同。</p>
+    <p>在百度网盘原有基础上，加入了一些自己对用户体验的设计。如重复点击新建或修改按钮，会触发抖动效果，并把焦点重新回到未处理的文件夹上。关闭登陆框是往右侧推入一定距离后才会执行。</p>
+	<p>该项目的布局兼容IE7+，上传功能不支持IE9及以下浏览器。请勿上传大文件测试，我的服务器空间很小~~~~(>_<)~~~~</p>
+    <strong>温馨提示：时间仓促，如有Bug，纯属正常</strong>
+	<span title="点击隐藏" id="close"></span>
+    <span class="mouseover" id="mouseover"></span>
+</div>
+
+
+</body>
+<script src="js/Bom.js"></script>
+<script src="js/add.js"></script>
+<script src="js/login.js"></script>
+<script src="js/asideMove.js"></script>
+<script src="js/upload.js"></script>
+</html>

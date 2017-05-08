@@ -1,0 +1,258 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演示：JS实现网页加载进度条_Helloweba</title>
+<meta name="keywords" content="javascript,倒计时,HTML5,CSS3,jQuery,PHP,MySQL,前端教程,在线演示,WEB源码下载,helloweba原创文章">
+<meta name="description" content="WEB开发中经常会用到倒计时来限制用户对表单的操作，比如希望用户在一定时间内看完相关协议信息才允许用户继续下一步操作，又比如在收取手机验证码时允许用户在一定时间过后（未收到验证码的情况下）再次获取验证码。那么今天我来给大家介绍下如何使用Javascript来实现这一简单应用。">
+<meta name="author" content="月光光">
+<meta name="Copyright" content="www.hellwoeba.com">
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.helloweba.com/feed">
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/styles/main.css" />
+<script type="text/javascript" src="http://www.helloweba.com/js/jquery.js"></script>
+<script type="text/javascript" src="http://www.helloweba.com/js/jquery.chili-2.2.js"></script>
+<script type="text/javascript" src="http://www.helloweba.com/js/recipes.js"></script>
+<script type="text/javascript" src="http://www.helloweba.com/js/global.js"></script>
+<style>
+.loading{
+    background:#FF6100; 
+    height:5px; 
+    position:fixed;
+    top:100;
+    z-index:99999 
+}
+</style>
+</head>
+
+<body id="blog">
+<div class="loading"></div>
+<div id="header">
+  <div id="header_wrap">
+     <div id="logo"><h1 title="Helloweba"><a href="http://www.helloweba.com">Helloweba</a></h1></div>
+     <ul id="nav">
+         <li><a href="/">首页</a></li>
+         <li><a href="/css.html">HTML/CSS</a></li>
+         <li><a href="/jquery.html">Javascript/jQuery</a></li>
+         <li><a href="/php.html">PHP/MySQL</a></li>
+         <li><a href="/web.html">HTML5/移动WEB应用</a></li>
+     </ul>
+  </div>
+</div><div id="page_banner"></div>
+<script type="text/javascript">
+	$('.loading').animate({'width':'33%'},50);  //第一个进度节点
+</script>
+<div id="main">
+  <div id="main_wrap">
+    <div id="main_l">
+              <div class="blog">
+       <div class="blog_title">
+          <h2>JS实现自动倒计时30秒后按钮才可用</h2>
+           <p><span>helloweba.com</span> <span>作者：月光光</span> 时间：<span>2015-08-28 12:22</span> 
+           <span>标签： <a href="tag-javascript.html">javascript</a>&nbsp; <a href="tag-%E5%80%92%E8%AE%A1%E6%97%B6.html">倒计时</a>&nbsp;</span>
+           </p>
+       </div>
+       <div class="content">
+       		<p>WEB开发中经常会用到倒计时来限制用户对表单的操作，比如希望用户在一定时间内看完相关协议信息才允许用户继续下一步操作，又比如在收取手机验证码时允许用户在一定时间过后（未收到验证码的情况下）再次获取验证码。那么今天我来给大家介绍下如何使用Javascript来实现这一简单应用。</p>
+                                   
+            			
+			<div id="art_content">
+          	<h4>应用场景1：用户注册时阅读完相关协议信息后才能激活按钮</h4>
+<p>某些网站注册时要求用户同意所谓的用户协议之类的信息，如果协议内容非常重要，有些网站会要求新注册的用户一定要阅读完相关协议信息才能激活下一步按钮提交表单。为了让用户能阅读完协议信息（实际用户有没有真正阅读咱不知道），开发者会设计一个倒计时比如30秒，30秒过后，表单提交按钮才会激活生效，下面来看具体如何实现。</p>
+<pre><code class="html">
+&lt;form action="http://www.helloweba.com/" method="post" name="agree"&gt;
+	&lt;input type="submit" class="button" value="请认真查看<服务条款和声明> (30)" name="agreeb"&gt;
+&lt;/form&gt;
+</code></pre>
+<p>假设有上面这样一个表单，表单的其他部分我们省略，只有一个提交按钮，初始时按钮不可用，当显示30秒倒计时结束后，按钮就会显示“我同意”，并且可以点击激活。</p>
+<p>我们用原生的js来实现这一效果：</p>
+<pre><code class="js">
+&lt;script&gt;
+var secs = 30;
+document.agree.agreeb.disabled=true;
+for(var i=1;i&lt;=secs;i++) {
+	window.setTimeout("update(" + i + ")", i * 1000);
+}
+function update(num) {
+	if(num == secs) {
+		document.agree.agreeb.value =" 我 同 意 ";
+		document.agree.agreeb.disabled=false;
+	}
+	else {
+		var printnr = secs-num;
+		document.agree.agreeb.value = "请认真查看<服务条款和声明> (" + printnr +")";
+	}
+}
+&lt;/script&gt;
+</code></pre>
+<p>我们设置时间为30秒，当然你也可以设置你想要的时间，将按钮禁用，也就是不可点击，然后循环30秒，通过window.setTimeout调用update()函数，将当前秒与倒计时对比，如果已经倒计时完成则显示“我同意”，并激活按钮。</p>
+
+
+<h4>应用场景2：用户激活短信通道向用户手机发送验证码短信以验明正身</h4>
+<p>很多网站在验证用户身份的时候需要提高用户信息的安全性，这样就会与用户手机绑定，于是就会向用户手机发送验证码信息，如果用户填写了正确的验证码提交后台，那么操作才会成功。而发送验证码也可能由于各种原因有发送不成功的情况，又不能让用户不停点击发送。如此开发者使用倒计时来处理这类问题，用户激活短信后，如果30秒后未收到验证码短信则可以再允许点击发送短信。</p>
+<pre><code class="html">
+&lt;form action="http://www.helloweba.com/" method="post" name="myform"&gt;
+	&lt;input type="button" class="button" value="获取手机验证码"  name="phone" onclick="showtime(30)"&gt;
+&lt;/form&gt;
+</code></pre>
+<p>上面的表单在按钮上添加了一个onclick事件，调用了showtime()函数。</p>
+<pre><code class="js">
+&lt;script&gt;
+function showtime(t){
+	document.myform.phone.disabled=true;
+	for(i=1;i&lt;=t;i++) {
+		window.setTimeout("update_p(" + i + ","+t+")", i * 1000);
+	}
+
+}
+
+function update_p(num,t) {
+	if(num == t) {
+		document.myform.phone.value =" 重新发送 ";
+		document.myform.phone.disabled=false;
+	}
+	else {
+		printnr = t-num;
+		document.myform.phone.value = " (" + printnr +")秒后重新发送";
+	}
+}
+&lt;/script&gt;
+</code></pre>
+<p>和场景1一样，当点击按钮后，按钮状态为禁用，通过调用window.setTimeout的update_p()显示倒计时，当倒计时完成后，按钮显示“重新发送”，这时按钮状态为可用。</p>
+            </div>
+       </div>
+              <div class="declare"><span>声明：</span>本文为原创文章，helloweba.com和作者拥有版权，如需转载，请注明来源于<a href="http://www.helloweba.com">helloweba.com</a>并保留原文链接：http://www.helloweba.com/view-blog-320.html</div>
+	   	   <div class="alipay">
+			<strong>支持本站：如果您觉得本站的内容对您有所帮助，您可以扫描下面的二维码小额支付请我喝杯茶，感谢！</strong>
+			<div class="alipay_img">
+				<img src="/images/pay.png">
+			</div>
+	   </div>
+	   <div class="clear"></div>
+       
+       <div class="page_nav">
+          <div class="pre_page" title="上一篇"><a href="/view-blog-319.html">PHP的serialize序列化数据与JSON格式化数据</a></div>
+                    <div class="next_page" title="下一篇"><a href="/view-blog-321.html">使用按钮控制HTML5背景音乐开关</a></div>
+                 </div>
+     </div>
+	 <div class="gg72890"><script src="/mabc/v72890.js" type="text/javascript"></script></div>
+     <!--相关阅读 -->
+          <div class="link_arts">
+         <h3>延伸阅读 <!-- Baidu Button BEGIN -->
+				<div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
+				<div class="clear"></div>
+        <!-- Baidu Button END -->
+		</h3>
+         <ul>
+                        <li><a href="/view-blog-182.html">jQuery倒计时</a></li>
+                        <li><a href="/view-blog-307.html">Javascript的setTimeOut和setInterval的定时器用法</a></li>
+                        <li><a href="/view-blog-242.html">使用raphael.js绘制中国地图</a></li>
+                     </ul>
+     </div>
+          
+     
+     
+         </div>
+		 <script type="text/javascript">
+	$('.loading').animate({'width':'55%'},50); 
+</script>
+   <div id="sider">
+            <div id="search">
+         <h2>搜索文章</h2>
+         <form action="search.html" method="get" class="search_form" id="search_form">
+           <input type="text" name="keys" id="keys" class="search_input" placeholder="输入关键字搜索" x-webkit-speech /> <input type="submit" class="search_btn" value="搜索" />
+         </form>
+       </div>
+       <div id="sns_share">
+       		<a href="http://www.helloweba.com/weibo.html" target="_blank" title="在新浪微博上关注Helloweba" rel="nofollow" class="ico_sina">在新浪微博上关注Helloweba</a>
+            <a href="http://www.helloweba.com/feed" target="_blank" title="RSS订阅 Helloweba" class="ico_rss">RSS订阅 Helloweba</a>
+       </div>
+       <h2>推荐文章</h2>
+              <ul class="top_blog">
+                    <li><a href="/view-blog-320.html" title="JS实现自动倒计时30秒后按钮才可用">JS实现自动倒计时30秒后按钮才可用</a></li>
+                    <li><a href="/view-blog-319.html" title="PHP的serialize序列化数据与JSON格式化数据">PHP的serialize序列化数据与JSON格式化数据</a></li>
+                    <li><a href="/view-blog-318.html" title="iframe跨域通信">iframe跨域通信</a></li>
+                    <li><a href="/view-blog-316.html" title="Javascript操作iframe">Javascript操作iframe</a></li>
+                    <li><a href="/view-blog-315.html" title="支持移动设备的纯Javascript画廊">支持移动设备的纯Javascript画廊</a></li>
+                    <li><a href="/view-blog-312.html" title="纯CSS3实现超酷的鼠标悬停效果">纯CSS3实现超酷的鼠标悬停效果</a></li>
+                    <li><a href="/view-blog-311.html" title="使用鼠标滚轮或者手势滑动到页面节点部分">使用鼠标滚轮或者手势滑动到页面节点部分</a></li>
+                    <li><a href="/view-blog-309.html" title="CSS3实现响应式数据表格">CSS3实现响应式数据表格</a></li>
+                    <li><a href="/view-blog-308.html" title="漂亮实用的提示框插件SweetAlert">漂亮实用的提示框插件SweetAlert</a></li>
+                    <li><a href="/view-blog-307.html" title="Javascript的setTimeOut和setInterval的定时器用法">Javascript的setTimeOut和setInterval的定时器用法</a></li>
+                 </ul>
+       <div class="tag">
+         <h2>热门标签</h2>
+         <p>
+                  <span><a href="/tag-%E6%BB%9A%E5%8A%A8.html" class=" bold bigsize">JS滚动效果</a></span>
+                  <span><a href="/tag-CU3ER.html" class="red bold bigsize">CU3ER</a></span>
+                  <span><a href="/tag-web.html" class=" bold ">web前端</a></span>
+                  <span><a href="/tag-CSS.html" class=" bold bigsize">CSS</a></span>
+                  <span><a href="/tag-jQuery%E6%8F%92%E4%BB%B6.html" class="red bold ">jQuery插件</a></span>
+                  <span><a href="/tag-%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7%E9%95%9C.html" class="red  bigsize">图片放大镜</a></span>
+                  <span><a href="/tag-jqGrid.html" class=" bold ">jqGrid表格应用</a></span>
+                  <span><a href="/tag-%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81.html" class=" bold bigsize">表单验证</a></span>
+                  <span><a href="/tag-fancybox.html" class="red bold ">弹出层</a></span>
+                  <span><a href="/tag-JSON.html" class="red bold bigsize">JSON</a></span>
+                  <span><a href="/tag-mysql.html" class="red bold ">MySQL技巧</a></span>
+                  <span><a href="/tag-Ajax.html" class="red bold bigsize">Ajax应用</a></span>
+                  <span><a href="/tag-jFlow.html" class=" bold bigsize">jFlow内容滑动</a></span>
+                  <span><a href="/tag-PHP.html" class=" bold bigsize">PHP开发</a></span>
+                  <span><a href="/tag-CSS3.html" class=" bold ">CSS3</a></span>
+                  <span><a href="/tag-Highcharts.html" class=" bold ">Highcharts</a></span>
+                  <span><a href="/tag-HTML5.html" class="red bold bigsize">HTML5</a></span>
+                  <span><a href="/tag-%E6%8A%BD%E5%A5%96.html" class="red bold bigsize">PHP抽奖</a></span>
+                  <span><a href="/tag-jQuery.html" class=" bold bigsize">jQuery应用</a></span>
+                  <span><a href="/tag-cluetip.html" class="  bigsize">cluetip提示工具</a></span>
+                  <span><a href="/tag-email.html" class="red bold bigsize">PHP发邮件</a></span>
+                  <span><a href="/tag-%E5%88%86%E9%A1%B5.html" class="red bold ">分页效果</a></span>
+                  <span><a href="/tag-%E6%97%A5%E5%8E%86.html" class=" bold ">日历工具</a></span>
+                  <span><a href="/tag-Cookie.html" class="red  bigsize">Cookie应用</a></span>
+                  <span><a href="/tag-%E5%8A%A8%E7%94%BB.html" class=" bold ">Easing动画</a></span>
+                  <span><a href="/tag-%E4%BA%8C%E7%BB%B4%E7%A0%81.html" class="red bold ">二维码</a></span>
+                  </p>
+       </div>
+	   
+	   <script type="text/javascript">
+	$('.loading').animate({'width':'78%'},50);  
+</script>
+    <div class="clear"></div>    
+  </div>
+</div>
+
+<div id="footer">
+    <div id="footer_wrap">
+       <div id="footer_rights">
+         <span>Copyright&copy;2010-2015 All Rights Reserved. <a href="http://www.helloweba.com">Helloweba.com</a></span>
+         <p><a href="/about.html" target="_blank">关于本站</a> | <a href="/statement.html" target="_blank">网站声明</a> | <a href="/sitemap.html" target="_blank">网站地图</a> | <a href="/list.html" target="_blank">资源一览表</a> | <a href="/gbook.html" target="_blank">留言</a></p>
+       </div>
+       <p id="stat"><script type="text/javascript" src="/js/tongji.js"></script></p>
+   </div>
+</div>
+
+<div id="floatPanel">
+	<div class="ctrolPanel" style="right:20px;">
+		<a class="arrow" href="#"><span>顶部</span></a>
+		<a class="contact" href="http://www.helloweba.com/gbook.html" target="_blank"><span>反馈</span></a>
+		<a class="qrcode" href="#"><span>二维码</span></a>
+		<a class="arrow" href="#"><span>底部</span></a>
+	</div>
+	
+	<div class="popPanel" style="right:66px;">
+		<div class="popPanel-inner">
+			<div class="qrcodePanel"><img src="/images/qrcode/qr_320.png" /><p>扫描二维码用手机看文章</p></div>
+			<div class="arrowPanel">
+				<div class="arrow01"></div>
+				<div class="arrow02"></div>
+			</div>
+		</div>
+	</div>
+</div><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<script type="text/javascript">
+	$('.loading').animate({'width':'100%'},50);  
+
+$(document).ready(function(){
+	$('.loading').fadeOut();	
+});
+</script>
+</body>
+</html>

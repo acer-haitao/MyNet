@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>留言板</title>
+<style type="text/css">
+
+</style>
+
+		
+              <tr>
+                <td height="30" colspan="5" align="right" class="left_txt2">
+              </tr>
+			  
+              <tr>
+                  <tr>
+                    <td height="31" colspan="5" align="right" class="left_txt2">
+				<table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="nowtable">
+                      <tr>
+                        <td height="30"  align="left" class="left_bt2" aclass="left_bt2">&nbsp;&nbsp;&nbsp;&nbsp; 留言设置</td>
+                        </tr>
+
+                      </table></td>
+                  </tr>
+                </table></td>
+              </tr>
+			  
+              <tr>
+                <td height="30" colspan="5" class="left_txt2">
+				<table width="100%" height="85" border="0" cellpadding="0" cellspacing="0">
+                <form name="set_liuyan" id="set_liuyan" method="post" action="cgi-bin/rcv_liuyan.cgi">
+				
+				 <tr>
+                    <td width="20%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt">您的邮箱：</td>
+                    <td width="3%" height="30" bgcolor="#f2f2f2" class="left_txt">&nbsp;</td>
+                    <td width="27%" height="30" bgcolor="#f2f2f2" class="left_txt">
+                    <input name="ipaddr" type="text" value="dih_yuhaitao@126.com" size="30" maxlength="15" id="ipaddr" /></td>
+                    <td width="6%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt">&nbsp;</td>
+                    <td width="44%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt">&nbsp;</td>
+                  </tr>
+			     
+                  <tr>
+					<td height="10" align="right" class="left_txt">留言内容：</td>
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                    <td height="30" class="left_txt">
+					<textarea name="liuyan" style="width:600px;height:350px;" onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='在此输入您的留言内容,限5000字哦'){value=''}"
+                    onblur="if (value ==''){value='在此输入您的留言内容,限5000字哦'}">在此输入您的留言内容,限5000字哦</textarea>
+                  
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                  </tr>
+				  
+                  <tr>
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                    <td height="30" align="right">
+                    <input type="submit" value="确认提交" name="submit_set_liuyan" id="submit_on_liuyan"/></td>
+                    <td height="30" align="right" class="left_txt">&nbsp;</td>
+                    <td height="30" align="left">
+                   
+                  </tr>
+                  </form>
+				   
+                </table></td>
+                </tr>
+				
+    <td >&nbsp;</td>
+  </tr>
+  <tr>
+    <td valign="middle">&nbsp;</td>
+      <td height="17" valign="top" >&nbsp;</td>
+    <td >&nbsp;</td>
+  </tr>
+</table>
+				<!--
+					<h5>发送邮件到dih_yuhaitao@126.com:</h5>
+					<form action="MAILTO:dih_yuhaitao@126.com" method="post" enctype="text/plain">
+					Name:<br>
+					<input type="text" name="name" value="您的姓名"><br>
+					E-mail:<br>
+					<input type="text" name="mail" value="您的邮箱"><br>
+					Comment:<br>
+					<input type="text" name="comment" value="发送内容" size="50"><br><br>
+					<input type="submit" value="发送">
+					<input type="reset" value="重置">
+					</form>
+				 <!--发送邮件end-->
+
+</body>
+
+<SCRIPT type="text/javascript">    
+function textdown(e) {
+    textevent = e;
+    if (textevent.keyCode == 8) {
+        return;
+    }
+    if (document.getElementById('textarea').value.length >= 5000) {
+        alert("大侠，手下留情，此处限字5000")
+        if (!document.all) {
+            textevent.preventDefault();
+        } else {
+            textevent.returnValue = false;
+        }
+    }
+}
+function textup() {
+    var s = document.getElementById('textarea').value;
+    //判断ID为text的文本区域字数是否超过100个 
+    if (s.length > 5000) {
+        document.getElementById('textarea').value = s.substring(0, 5000);
+    }
+}
+</SCRIPT>  
+ 
+</html>

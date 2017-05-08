@@ -1,0 +1,63 @@
+.search-box{margin:10px auto 0;width:610px}
+.tips-top{line-height:45px}
+.ex-info{clear:both;margin:auto;width:960px;}
+.ex-info p{text-indent:2em}
+.ex-info{line-height:30px}
+.ex-title-forEms{float:left;line-height:26px;position:relative;}
+.smart{clear:both;margin:0 auto;width:960px;}
+.smart01{float:left;padding-left:175px;}
+.bdshareBox{float:left;width:240px;}
+.smart01Child{position:absolute;z-index:2;top:0px;left:640px;width:260px;}
+.ex-title-forEms img{border:1px solid #CCC;float:left;margin-right:10px;}
+.ex-title-forEms h1{font-size:14px;color:#FE8D1D;float:left;margin-right:10px;}
+.ex-title{clear:both;line-height:26px;margin:auto;padding-left:150px;width:760px;}
+.ex-title img{border:1px solid #CCC;float:left;margin-right:10px}
+.ex-title h1{font-size:14px;color:#FE8D1D;float:left;margin-right:10px;} 
+.map-img{text-align:center}
+.map-text a{display:block;width:60px;float:left;text-align:center;border-right-width:1px;border-right-style:solid;border-right-color:#DDD;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#DDD}
+.map-text{border-top:1px solid #DDD;border-left:1px solid #DDD;width:854px;margin:auto;margin-top:10px}
+.result-info{width:100%}
+#allcompanyurl, #allcompanytel{margin-right:10px}
+#queryContext{margin:auto;width:610px;}
+.sendMsg{color:#F00}
+/*广告*/
+.adDiv-all{line-height:30px;margin-bottom:10px;}
+.adDiv-all dl{margin-left:8px}
+.adDiv-all dd{margin-left:5px}
+.adDiv1{background:url("../images/frame_01.gif") no-repeat 330px #FFFAE2}
+.adDiv2{background:url("../images/frame_02.gif") no-repeat 360px #FFFAE2}
+.adDiv3{background:url("../images/frame_03.gif") no-repeat right #FFFAE2}
+.adDiv4{background:url("../images/frame_04.gif") no-repeat 390px #FFFAE2}
+.adDiv5{background:url("../images/frame_04.gif") no-repeat 390px #FFFAE2}
+.adDiv8{background:url("../images/frame_08.gif") no-repeat 360px #FFFAE2}
+a.but_adm{display:block;line-height:36px;height:36px;width:81px;text-align:center;float:left;margin-right:15px;background:url("../images/frame_05.gif") no-repeat;color:#FFF}
+a.but_adm:hover{color:#FFF;text-decoration:underline}
+.comdiv{width:570px;overflow:hidden}
+/*地图*/
+.mapBox{float:left;padding-left:165px;height:447px;}
+#map{float:left;width:550px;height:447px;display:block;position:relative;}
+#map li{display:block;position:absolute;z-index:1;}
+.mapl a{display:inline-block;padding-left:20px;background:url("../images/map_hover.gif") no-repeat left 10px;}
+.mapl a:hover{background:url("../images/map_hover.gif") no-repeat left bottom;}
+.mapr a{display:inline-block;padding-right:20px;background:url("../images/map_hover.gif") no-repeat right 10px;}
+.mapr a:hover{background:url("../images/map_hover.gif") no-repeat right -40px;}
+.maptext{float:right;line-height:22px;width:360px;margin-left:10px}
+.rtcom{background:url("http://www.yicha138.com../images/ico_tips.gif") no-repeat left -92px;padding-left:52px;}
+.add-fav-box{height:25px}
+.add-fav-box a{display:block;padding-left:16px;width:170px;height:16px;line-height:16px;background:url("../images/btn_add_fav.png") no-repeat}
+.add-fav-box .span-weibo{vertical-align:middle;color:#0A8ECE}
+.add-fav-box iframe{vertical-align:middle;}
+.div-border .div-h{border-bottom:1px dashed #CCC;line-height:30px;font-size:14px;color:#0F6B99;padding-left:60px;margin-bottom:10px;padding-bottom:5px;background-image:url("../images/ico_about.gif");background-repeat:no-repeat;background-position:left -134px;}
+.div-border .div-n{border-bottom:1px dashed #CCC;line-height:30px;font-size:14px;color:#0F6B99;margin-bottom:10px;padding-bottom:5px;background-image:url("../images/ico_about.gif");background-repeat:no-repeat;background-position:left -95px;padding-left:22px;}
+.maptext a{margin-left:5px;}
+.mapbaidu{float:left;width:360px;margin-left:20px;margin-top:50px}
+/* 新增的链接的css */
+.ems_api_link{width:100%;text-align:left;clear:both;}
+.ems_api_link a{font-size:12px;text-decoration:none;}
+.ems_api_link a:hover{text-decoration:underline;}
+.step_state_1{background:url("../images/rss_step.png") 65px 0 no-repeat}
+.step_state_2{background:url("../images/rss_step.png") 65px -50px no-repeat}
+.step_state_3{background:url("../images/rss_step.png") 65px -100px no-repeat}
+.step_state_0{background:url("../images/rss_step.png") 65px -150px no-repeat}
+.step_state_01{background:url("../images/rss_step.png") 65px -200px no-repeat}
+.step_state_4{background:url("../images/rss_step.png") 65px -250px no-repeat}

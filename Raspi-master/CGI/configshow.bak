@@ -1,0 +1,179 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
+#include "cgic.h"
+#include "getset_configmsg.h"
+#define bit 2
+
+
+int dropsmb(unsigned char *str)
+{
+	while(*str)
+	{
+		if (*str == ',')
+		{
+			*str = '\0';
+		}
+		str++;
+	}
+	return 0;
+}
+
+int getconfigmsg(configmsg *MSG)
+{
+	FILE *fp = fopen(FILEPATH, "r");
+	unsigned char buf[1024];
+	unsigned char *p = NULL;
+	configmsg *H;
+
+	int linesize = 0;
+
+	if(fp == NULL)
+	{
+		printf("fopen failed\n");
+		return -1;
+	}
+	while(fgets(buf,1024,fp) != NULL)
+	{
+		//	printf("MSG->gateway_ID %s\n",MSG->gateway_ID);
+
+#if 1
+		//去掉行尾的\n
+		linesize = strlen(buf);
+		if(buf[linesize - 1] == '\n')
+		{
+			buf[linesize -1] = '\0';
+		}
+#endif
+		//	printf("buf %s\n", buf);
+		if((p = strstr(buf,MSG->gateway_ID)) != NULL)
+		{
+			p = p + strlen(MSG->gateway_ID) + bit;
+			dropsmb(p);
+			sprintf(H->gateway_ID,"gateway_ID:%s\n",p);
+		}	
+		else if((p = strstr(buf,MSG->server_address)) != NULL)
+		{
+			p = p + strlen(MSG->server_address) + bit;
+			dropsmb(p);
+			printf("MSG->server_address:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->server_port_up)) != NULL)
+		{
+			p = p + strlen(MSG->server_port_up) + bit;
+			dropsmb(p);
+			printf("MSG->server_port_up):%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->serv_port_down)) != NULL)
+		{
+			p = p + strlen(MSG->serv_port_down) + bit;
+			dropsmb(p);
+			printf("serv_port_down:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->keepalive_interval)) != NULL)
+		{
+			p = p + strlen(MSG->keepalive_interval) + bit;
+			dropsmb(p);
+			printf("MSG->keepalive_interval:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->stat_interval)) != NULL)
+		{
+			p = p + strlen(MSG->stat_interval) + bit;
+			dropsmb(p);
+			printf("stat_interval:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->push_timeout_ms)) != NULL)
+		{
+			p = p + strlen(MSG->push_timeout_ms) + bit;
+			dropsmb(p);
+			printf("push_timeout_ms:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->forward_crc_valid)) != NULL)
+		{
+			p = p + strlen(MSG->forward_crc_valid) + bit;
+			dropsmb(p);
+			printf("forward_crc_valid:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->forward_crc_error)) != NULL)
+		{
+			p = p + strlen(MSG->forward_crc_error) + bit;
+			dropsmb(p);
+			printf("forward_crc_error:%s\n",p);
+		}
+		else if((p = strstr(buf,MSG->forward_crc_disabled)) != NULL)
+		{
+			p = p + strlen(MSG->forward_crc_disabled) + bit; 
+			dropsmb(p);
+			printf("forward_crc_disabled:%s\n",p);
+		}
+	}
+	fclose(fp);
+	return 0;
+}
+
+
+int cgiMain()
+{
+	int i, count = 10000;
+
+	cgiHeaderContentType("text/html"); 
+	fprintf(cgiOut, "<HTML><HEAD>"); 
+	fprintf(cgiOut, "<TITLE>当前配置信息</TITLE>");  
+	fprintf(cgiOut, "<style type=\"text/css\"> body,td,th {font-size: 12px;margin-left: 0px;margin-top: 0px;}</style></HEAD>"); 
+	fprintf(cgiOut, "<BODY BGCOLOR=\"#F8F9FA\">"); 
+	fprintf(cgiOut, "<meta http-equiv=\"refresh\" content=\"3\">");
+	
+/*
+	for(i = 0; i < count; i++)
+	{
+		if((i+2)%2 == 0)
+			fprintf(cgiOut, 	"<tr bgcolor=\"#f2f2f2\">");
+		else
+			fprintf(cgiOut, "<tr>");
+			
+		fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">%s#</td>", H->gateway_ID);
+		//fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">%s</td>", "你好，世界");
+		
+		//fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">-</td>");
+		//fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"45%%\"></td>");
+		//fprintf(cgiOut, 	"</tr>");
+	}
+	
+	fprintf(cgiOut, "</table>");
+
+	fprintf(cgiOut, "<script type=\"text/jscript\">");
+	fprintf(cgiOut, "setTimeout(\"self.close()\", 3000)");
+	fprintf(cgiOut, "</script>");
+	fprintf(cgiOut, "</BODY>"); 
+	fprintf(cgiOut, "</HTML>");
+	fflush(stdout);
+*/
+
+
+	for(i = 0; i < count; i++)
+	{
+		if((i+2)%2 == 0)
+			fprintf(cgiOut, 	"<tr bgcolor=\"#f2f2f2\">");
+		else
+			fprintf(cgiOut, "<tr>");
+			
+		fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">%s#</td>", "hello world");
+		fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">%s</td>", "你好，世界");
+		
+		fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"15%%\">-</td>");
+		fprintf(cgiOut, 		"<td height=\"30\" align=\"center\" valign=\"middle\" width=\"45%%\"></td>");
+		fprintf(cgiOut, 	"</tr>");
+	}
+	
+	fprintf(cgiOut, "</table>");
+
+	fprintf(cgiOut, "<script type=\"text/jscript\">");
+	fprintf(cgiOut, "setTimeout(\"self.close()\", 3000)");
+	fprintf(cgiOut, "</script>");
+	fprintf(cgiOut, "</BODY>"); 
+	fprintf(cgiOut, "</HTML>");
+	fflush(stdout);
+	return 0;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404错误_易查138</title>
+<link rel="stylesheet" type="text/css" href="http://www.yicha138.com/css/base_m.css?version=20150331034645" />
+</head>
+<body>
+<input type="hidden" id="loginAccount" value="" />
+<input type="hidden" id="loginStatus" value="" />
+<div class="header w960">
+  <div class="menu-top">
+    <div class="fr tabSpan"><a id="serviceLink2" class="tab-link" href="/network/distribution.html">网点专区</a>
+      <ul id="serviceList2" class="hidden">
+        <li><a target="_blank" href="/network/distribution.html">服务介绍</a></li>
+        <li><a href="/claim/clmReg.html" target="_blank">网点注册</a></li>
+        <li><a target="_blank" href="/claim/loginNet.html">网点登录</a></li>
+      </ul>
+    </div>
+    <div class="fr tabSpan service-tab"><a id="serviceLink" class="tab-link" href="/help/service.html">客服中心</a>
+      <ul id="serviceList" class="hidden">
+        <li><a href="/help/service.html">新手上路</a></li>
+        <!--li><a target="_blank" href="">常见问题</a></li-->
+        <li><a href="/help/feedback.html">意见建议</a></li>
+      </ul>
+    </div>
+    <div class="fr tabSpan relative"><a id="moreLink" class="tab-link" href="/user/login.html">我的单号<span id="cookieTips2" class="hidden fontorange">[0]</span></a>
+      <ul id="moreList" class="hidden">
+        <li><a href="/user/login.html">单号管理</a><span id="uncheckTips2" class="hidden fontorange"></span></li>
+        <li><a href="/user/login.html" onclick="orderPageLink();return false;">我的订单</a></li>
+      </ul>
+      <div class="top-float-tips1 hidden" id="cookieTips"></div>
+      <div class="top-float-tips2 hidden" id="uncheckTips"></div>
+    </div>
+    <div class="fr tabSpan"><a href="http://m.yicha138.com/">手机版</a></div>
+    <div class="fr tabSpan"><span id="welcome">[&nbsp;<a href="/user/login.html">登录</a>&nbsp;|&nbsp;<a href="/user/regByTel.html">注册</a>&nbsp;]</span></div>
+  </div>
+  <!-- menu-top -->
+  <div class="logo"><a href="http://www.yicha138.com/"><img src="http://www.yicha138.com/images/logo.gif?version=20150331034645" alt="易查138" /></a></div>
+  <div class="top468-60" id="PAGE_AD_652471"></div>
+  <div id="afficheTips" style="display:none;"></div>
+  <div class="top-float-tips1  hidden" id="cookieTips"></div>
+  <div class="top-float-tips2  hidden" id="uncheckTips"></div>
+</div><!--header w960-->
+<iframe width="0" height="0" id="frame_logout" name="frame_logout" src=""></iframe>
+<div class="wfull" id="menu">
+    <div class="nav wfull">
+      <div class="nav-box w960">
+        <a id="kuaidiQuery" href="/" class="fl">快递查询</a>
+        <a id="networkQuery" href="/network.html" class="fl">网点查询</a>
+        <!--a id="orderIndex" href="/orderIndex.php?orderSource=orderIndex" class="fl">查价寄快递</a-->
+        <a id="newsQuery" href="/news/" class="fl">快递资讯</a>
+        <a id="historyQuery" href="/user/index.html" class="fl">我的快递单</a>
+        <a id="apiQuery" href="/openapi" class="fr">快递接口(API)</a>
+      </div>
+    </div>
+    <div class="sub-nav wfull">
+      <div class="sub-nav-box w960 hidden" id="kuaidiQuerySubMenu">
+        <a id="kuaijianQuery" href="/" class="fl">快件查询</a>
+        <a id="wuliuQuery" href="/wuliu.html" class="fl">物流查询</a>
+        <a id="guojiQuery" href="/global.html" class="fl">国际快递查询</a>
+        <a id="kuaidiAll" href="/all/" class="fl">快递公司大全</a>
+        <a id="numberAll" href="/network/plist.html" class="fl menu-goto">快递电话大全</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960" id="networkQuerySubMenu" style="display:none">
+        <a id="wangdianQuery" href="/network.html" class="fl">网点查询</a>
+        <a id="networkAll" href="/network/clist.html" class="fl menu-goto">网点大全</a>
+        <span class="underline"></span>
+      </div>
+      <div class="sub-nav-box w960 hidden" id="apiQuerySubMenu">
+        <a id="apiShouYeQuery" href="/openapi" class="fl">简介</a>
+        <a id="applyApi" href="/openapi/applyapi.html" class="fl">申请</a>
+        <a id="documentApi" href="/openapi/api_post.html" class="fl">文档</a>
+        <a id="downloadApi" href="/openapi/plugin.html" class="fl">下载</a>
+        <a id="banZuApi" href="/help/qa.html" class="fl">帮助</a>
+        <span class="underline"></span>
+      </div>
+    </div>
+</div><!--wfull-->
+<div class="fix-box-middle" id="floatCtrl">
+    <a href="#" onclick="gototop();return false;" class="ctrl-btn-1" title="回到顶部"></a>
+    <a href="#" onclick="feedbackInit();$('.fb-box').show();return false;" class="ctrl-btn-2"></a>
+    <a href="#" onclick="gotobottom();return false;" class="ctrl-btn-3" title="到达底部"></a>
+</div><!--fix-box-middle-->
+<div class="fix-box-bottom" id="feedbackDiv">
+	<div class="fb-box" style="display:none">
+    	<a href="#" class="fb-close" onclick="feedbackInit();return false;"></a>
+        <span id="fb-error" class="fb-errortips"></span>
+        <textarea id="fb-context" placeholder="请输入您的建议"></textarea>
+        <div id="fb-input1"><label for="fb-checkbox" onclick="$('#fb-input1').hide();$('#fb-input2').show();$('#fb-sender').val('');"><input id="fb-checkbox" class="checkbox" type="checkbox" />我愿意接受回馈</label></div>
+        <div id="fb-input2" style="display:none">
+        	<input id="fb-sender" class="input" placeholder="请输入您的邮箱或QQ"/>
+    		<a href="#" class="fb-inputclose" onclick="$('#fb-input2').hide();$('#fb-input1').show();$('#fb-checkbox').attr('checked',false);return false;"></a>
+        </div>
+        <a href="#" class="fb-submit" onclick="submitFeedback();return false;">提&nbsp;交</a>
+    </div>
+	<div class="fb-finish" style="display:none">
+    	<a href="#" onclick="$('.fb-finish').hide();return false;"></a>
+    </div>
+</div> <!--fix-box-bottom--> 
+<div class="tips-top mt10px w960"><a href="/">首页</a> &gt; <strong>404错误！</strong></div>
+<div class="container w960">
+  <div style="background:url(http://www.yicha138.com/images/bg_404.gif) no-repeat center;height:250px;">
+    <div style="padding-top:75px;padding-left:460px">很抱歉，您要访问的的页面不存在！<br />
+      <a href="/" class="font14px">返回首页&gt;&gt;</a></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="footer w960 mt10px">
+	<div class="foot-menu">
+		<ul class="footAboutUs" id="footAboutUs">
+			<li><a href="/about/" rel="nofollow">关于我们</a></li>
+			<li><a href="/about/contact.html" rel="nofollow">联系我们</a></li>
+			<li><a href="/about/adserver.html" rel="nofollow"><span style="color:#F21818">广告合作</span></a></li>
+			<li><a href="/all.html">快递大全</a></li>
+			<li><a href="/network/clist.html">网点大全</a></li>
+			<li><a href="/help/link.html" rel="nofollow">友情链接</a></li>
+		</ul>
+	</div>
+	<p style="color:#999"class="kingdee-info">
+		声明：本站为网友提供快递单号查询、物流查询、快递网点查询等服务，不对所查询结果的真实性及个人隐私问题负责；
+		<br/>&copy; Copyright 2011-2015, 易查138, All Rights Reserved. 沪ICP备14002412号-1
+	</p> 
+</div>
+<!--script type="text/javascript" src="http://www.yicha138.com/js/net/f.js?version=20150331034645"></script-->
+<script type="text/javascript" src="http://www.yicha138.com/js/util/jquery-1.7.1.min.js?version=20150331034645"></script>
+<script type="text/javascript" src="http://www.yicha138.com/js/page/include/header.js?version=20150331034645"></script> 
+<script type="text/javascript" src="http://www.yicha138.com/js/share/loginLogout.js?version=20150331034645"></script> 
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">BAIDU_CLB_fillSlotAsync('652471','PAGE_AD_652471');</script>
+<script type="text/javascript" src="http://www.yicha138.com/js/share/count.js?version=20150331034645"></script>
+</body>
+</html>

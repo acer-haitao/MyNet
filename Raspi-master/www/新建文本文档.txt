@@ -1,0 +1,38 @@
+<meta name="author" content="smile@kang.cool">//作者
+ <meta name="description" content="hello">//网页描述
+ <meta name="keywords" content="a,b,c">//关键字,“，”分隔
+ <meta http-equiv="expires" content="Wed, 26 Feb 1997 08：21：57 GMT">//设定网页的到期时间。一旦网页过期，必须到服务器上重新调阅
+ <meta http-equiv="Pragma" content="no-cache">//禁止浏览器从本地机的缓存中调阅页面内容
+ <meta http-equiv="Window-target" content="_top">//用来防止别人在框架里调用你的页面
+ <meta http-equiv="Refresh" content="5;URL=http://kahn1990.com/">//跳转页面，5指时间停留5秒 网页搜索机器人向导。用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引
+ <meta name="robots" content="none">//content的参数有all,none,index,noindex,follow,nofollow，默认是all
+ <link rel="Shortcut Icon" href="favicon.ico">//收藏图标
+ <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">//网页不会被缓存
+
+-moz    Firefox
+-webkit   Safari和Chrome
+
+
+@file 文件名
+@addon 把一个函数标记为另一个函数的扩张，另一个函数的定义不在源文件中
+@argument 用大括号中的自变量类型描述一个自变量
+@author 函数/类作者的姓名
+@base 如果类是继承得来，定义提供的类名称
+@class 用来给一个类提供描述，不能用于构造器的文档中
+@constructor 描述一个类的构造器
+@deprecated 表示函数/类已被忽略
+@exception 描述函数/类产生的一个错误
+@exec @extends 表示派生出当前类的另一个类
+@fileoverview 表示文档块将用于描述当前文件，这个标签应该放在其它任何标签之前
+@final 指出函数/类
+@ignore 让jsdoc忽视随后的代码
+@link 类似于@link标签，用于连接许多其它页面
+@member 定义随后的函数为提供的类名称的一个成员
+@param 用大括号中的参数类型描述一个参数
+@private 表示函数/类为私有，不应包含在生成的文档中
+@requires 表示需要另一个函数/类
+@return 描述一个函数的返回值
+@see 连接到另一个函数/类
+@throws 描述函数/类可能产生的错误
+@type 指定函数/成员的返回类型
+@version 函数/类的版本号

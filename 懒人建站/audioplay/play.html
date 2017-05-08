@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0">
+<title>演示：使用按钮控制HTML5背景音乐开关</title>
+<style>
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.helloweba.com/demo/css/main.css" />
+
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+</div>
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-321.html">使用按钮控制HTML5背景音乐开关</a></h2>
+   <div style="width:300px; height:120px; margin:100px auto">
+		
+		<p>1、自动播放</p>
+		<audio id="music" src="http://cctv3.qiniudn.com/zuixingfuderen.mp3" autoplay="autoplay" loop="loop">你的浏览器不支持audio标签。</audio>
+		<a id="audio_btn"><img src="play.gif" width="48" height="50" id="music_btn" border="0"></a>
+		<br/>
+		<p>2、暂停状态</p>
+		<audio id="music2" src="music.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
+        <a href="javascript:playPause();"><img src="pause.gif" width="48" height="50" id="music_btn2" border="0"></a>
+   </div>
+</div>
+<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$("#audio_btn").click(function(){
+	var music = document.getElementById("music");
+	if(music.paused){
+		music.play();
+		$("#music_btn").attr("src","play.gif");
+	}else{
+		music.pause();
+		$("#music_btn").attr("src","pause.gif");
+	}
+});
+
+function playPause() {
+    var music = document.getElementById('music2');
+    var music_btn = document.getElementById('music_btn2');
+    if (music.paused){
+        music.play();
+        music_btn.src = 'play.gif';
+    }
+    else{
+        music.pause();
+        music_btn.src = 'pause.gif'; 
+    }
+}
+</script>
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+</body>
+</html>

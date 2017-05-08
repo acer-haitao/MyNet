@@ -1,0 +1,63 @@
+.smallDate {
+  width: 200px;/*最外边红框宽度*/
+  height: 100px;/*最外边红框高度*/
+  cursor: default;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  border: 1px dotted rgba(200, 200, 200, 0);
+  border-radius: 5px;
+  padding: 10px;
+  transition: border .4s;
+  border: 1px solid red;
+}
+.smallDate .date_main {
+  width: 180px;/*右侧时间宽度*/
+}
+.smallDate .date_main .date_left {
+  width: 50px;/*左侧细线小框*/
+  height: 85px;
+  border: 1px solid #E50020;
+  border-radius: 5px;
+  float: left;
+}
+.smallDate .date_main .date_left .styleCircle {
+  height: 5px;/*左侧细线小框里红块距离*/
+}
+.smallDate .date_main .date_left .styleCircle li {
+  width: 3px;
+  height: 3px;
+  border: 1px solid #E50020;
+  border-radius: 100%;
+  float: left;
+  margin: 5px 4px;
+}
+.smallDate .date_main .date_left .main {
+  text-align: center;/*红色块*/
+  background: #fd9187;
+  width: 40px;
+  height: 55px;
+  margin: 0 auto;
+}
+.smallDate .date_main .date_left .main .month {
+  font-size: 12px;
+  color: #666;
+  padding-top: 5px;
+}
+.smallDate .date_main .date_left .main .day {
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+}
+.smallDate .date_main .date_right {
+  width: 130px;
+  height: 70px;
+  float: right;
+}
+.smallDate .date_main .date_right p {
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+  text-shadow: 0 0 10px #fff;
+  line-height: 23px;
+}

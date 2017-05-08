@@ -1,0 +1,83 @@
+/*网点详细页面css*/
+.detail table{width:640px;border:solid #dddddd;margin-bottom:10px;border-width:1px 1px 0px 1px;border-collapse:collapse;border-spacing:0px;}
+.detail th{width:80px;text-align:right;padding:5px;border:solid #dddddd;border-width:0px 1px 1px 0px;}
+.detail td{width:537px;text-align:left;padding:5px;border:solid #dddddd;border-width:0px 0px 1px 0px;}
+.toOrder{display:inline-block;color:#f08200;margin-left:20px;background:url("../images/ico_index1.gif") 0px -261px;width:78px;height:22px;text-indent:10px;line-height:22px;}
+/*网点列表*/
+.xboxcontent-t{line-height:27px;height:27px;overflow:hidden;padding-left:10px;font-size:14px;color:#0A8ECE;border:1px solid #DDD;border-top-width:0px;background:url("../images/bg_title.gif") 0px -32px no-repeat;}
+.xboxcontent_a a:hover{text-decoration:none;}
+.back{background:url("../images/bg_title.gif") 0px -64px;width:50px;height:50px;position:absolute;left:900px;top:35px;}
+/*斜角框*/
+.div-title{text-align:left;line-height:29px;height:29px;width:638px;overflow:hidden;color:#0F6B99;font-weight:bold;padding-left:10px;background-image:url("../images/bg_title.gif");background-repeat:no-repeat;background-position:-2px 0px;border-right-width:1px;border-left-width:1px;border-right-style:solid;border-left-style:solid;border-right-color:#DDD;border-left-color:#DDD;}
+.div-title2{text-align:left;line-height:29px;height:29px;width:288px;overflow:hidden;color:#0F6B99;font-weight:bold;padding-left:10px;background-image:url("../images/bg_title.gif");background-repeat:no-repeat;background-position:-1px 0px;border-right-width:1px;border-left-width:1px;border-right-style:solid;border-left-style:solid;border-right-color:#DDD;border-left-color:#DDD;}
+
+/*目录斜角框*/
+.div-content{margin:0 auto;width:960px;line-height:20px;}
+.div-contentheader{width:960px;height:50px;background-image:url("../images/content_title_bottom.gif");background-repeat:no-repeat;background-position:right bottom;}
+.div-contentheader .title{float:left;float:left;width:368px;line-height:50px;height:49px;font-size:14px;text-align:center;border:1px solid #8FBFFF;border-bottom:0px}
+.div-contentbody{float:left;width:958px;overflow:hidden;margin-bottom:10px;padding:10px 0px;border:1px solid #8FBFFF;border-top:0px}
+.div-contentbody-ad{float:right;height:250px;border:none;overflow:hidden;}
+.div-contentbody ul{height:23px}
+.div-contentbody li{width:178px;margin-left:10px;line-height:23px;height:23px;overflow:hidden}
+
+.sendtime{line-height:22px;}
+.sendtime_grid{width:300px;float:left;margin:0px;border:#ccc 1px solid;}
+.sendtime_grid .resultheader{border:none;width:300px;}
+.sendtime_grid .resultheader tr{height:30px;}
+.sendtime_grid .resultheader th{padding:0;padding-left:3px;padding-right:2px;background:#eee;text-align:center;border-bottom:none;border-top:none;border-left:none;border-right:#ccc 1px solid;}
+.sendtime_grid .resultheader .toh{width:100px;}
+.sendtime_grid .resultheader .avgh{width:70px;}
+.sendtime_grid .resultheader .cnth{}
+
+.sendtime_grid .resultbodydiv{line-height:15px;float:left;width:300px;margin:0px auto 0 auto;max-height:1000px;overflow-y:scroll;border-right:#dedfe1 1px solid;border-bottom:#dedfe1 1px solid;border-left:none;border-top:#dedfe1 1px solid;}
+.sendtime_grid .resultbodydiv .resultbody{width:283px;border:none;background:#000;}
+.sendtime_grid .resultbody tr{background:#fff;height:25px;}
+.sendtime_grid .resultbody td{padding:0;padding-left:3px;padding-right:2px;border-bottom:none;border-top:none;border-left:none;border-right:#eee 1px solid;}
+.sendtime_grid .resultbody .to{width:100px;}
+.sendtime_grid .resultbody .avg{width:70px;text-align:right}
+.sendtime_grid .resultbody .cnt{text-align:right}
+
+.detail .col_1{ float:left;}
+.detail .col_2{ float:right; width:300px; }
+.query_widget{ position:relative; width:300px; height:85px; background-repeat:no-repeat; border:2px solid #8FBFFD; }
+.query_widget span{font-size:16px;font-weight:bold;color:#448DF3;display:block;padding:10px;}
+.query_widget span a{color:#448DF3}
+.query_widget input{ position:absolute; top:43px; left:10px; padding:2px 5px; width:200px; height:24px; border:1px solid #CCC; }
+.query_widget a.btn{ position:absolute; top:42px; left:210px; display:block; width:80px; height:31px; background:url("../images/btn_net_query.png") 0 3px; }
+
+.kd-info{ width:630px; font-size:14px; line-height:35px; font-family:"微软雅黑"; padding:10px; border:1px solid #DDD; background-color:#F6F6F6; }
+.kd-info h1{font-size:18px;margin-left:15px;}
+.kd-info dl dt{float:left;font-weight:bold;margin-right:5px;text-align:right;width:85px;}
+.kd-info dl dd{float:left;color:#666}
+.kd-info dl{width:100%;float:left;text-align:left;}
+.kd-info dl .kd-ps{border:1px dashed #CCC;padding:0px 10px;background-color:#FFF;margin-top:9px;width:517px;}
+.kd-info dl .kd-ps2{width:490px;}
+.kd-info .kd-bps{margin-top:5px;margin-bottom:5px;}
+.kd-info h1 span{height:33px;width:94px;}
+.kd-info h1 span a{font-size:15px;color:#B7B7B7;padding-left:23px;line-height:32px;}
+.query-link a{ height:31px; width:93px; display:block; float:left; background-color:#91BEFF; color:#FFF; text-align:center; font-weight:bold; line-height:31px; margin-right:10px; }
+.kd-span{ font-size:12px; margin-left:10px; text-decoration: none; }
+
+.query_widget .placeholder{color:#999999}
+
+.netWorkDetail{margin-bottom:10px;border-bottom:1px solid #DDD;padding-bottom:10px;}
+.netWorkDetail dl dt{width:60px;float:left;}
+.netWorkDetail dl dd{width:665px;display:block;float:left;color:#666;margin-bottom:2px;}
+.netsearch{float:right;width:580px;}
+.div-contentheader .title span{font-weight:bold;color:#F60;}
+.DTright{ float:right; width:200px; margin-bottom:10px }
+.DTleft{float:left;width:728px;min-height:620px}
+
+.networkListTitle{margin-bottom:15px;border-bottom-width:2px;border-bottom-style:solid;border-bottom-color:#FF9E40;}
+
+.networkListTitle span{padding:5px 10px;font-weight:bold;color:white;background-color:#FF9E40;}
+.netsearch .search-box{margin-top:0px;}
+.netlist-hot dt{font-weight:bold;float:left;}
+.netlist-hot dd{float:left;width:824px;}
+.netlist-hot{padding:10px 0px;font-size:14px;color:#666;line-height:28px}
+.netlist-hot li{width:163px;float:left;}
+.netList-b-text{text-align:center;margin-bottom:10px;padding-top:5px;padding-right:0px;padding-bottom:5px;padding-left:0px;border:1px solid #8FBFFF;color:#448FF4;background-color:#E8F1FF;}
+.city_li{display:block;}
+.city_li li{width:116px;line-height:22px;height:22px;}
+
+.sticky{position:fixed;top:0;_position:absolute;_top:expression(eval(document.documentElement.scrollTop));z-index:300;zoom:1;}

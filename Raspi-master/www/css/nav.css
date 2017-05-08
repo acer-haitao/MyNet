@@ -1,0 +1,239 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: Arial;
+	 text-align:center;
+}
+ul{
+	list-style: none;      /*清除ul的样式*/
+}
+a{
+	text-decoration: none;    /*清除下划线*/
+}
+a:hover{
+	text-decoration: none;    /*清除下划线*/
+}
+/*以上是公共样式的内容*/
+
+/*顶部导航栏样式*/
+#nav-top{
+	width: 100%;
+	margin: 0 auto;
+	height: 50px;
+	color: #3855FF;
+	border: 0px solid #3385FF;
+	border-bottom-color: transparent;
+     /*设置边框底部的颜色为透明*/
+
+}
+
+#nav-top ul li{
+	float: left;
+	width: 16.6%;/*100除以6个*/
+	height: 50px;
+	background:#FFC0CB;/*导航标签背景色*/
+	border-style:groove /*边框效果 设置4边框样式dotted dashed solid outset inset  groove ridge double*/
+}
+#nav-top ul li a{
+	display: block;
+	text-align: center;
+	line-height: 50px;
+	color:  #000080;/*导航栏6个标签内字体的颜色*/
+	font-size: 20px;
+	font-family:Arial, ; /*设置字体*/
+	transition: 1s;
+}
+#nav-top ul li a:hover{
+	background: #4285F4;	/*#4285F4 #3385FF*/
+	color: white;
+}
+/*顶部导航栏样式结束*/
+
+/*logo和搜索开始*/
+.navimg{
+	height: 115px;
+	width: 100%;
+	position: relative;
+}
+
+
+.navimg .row .Bdsearch form{
+	position: absolute;
+	left: 0px;
+	top: 18px;
+}
+.navimg .row .Bdsearch form .Bdtext{
+	width:700px;
+	height: 60px;
+	text-indent: 18px;
+	font-size: 25px;
+	float: left;
+	color: #3385FF;
+	position: absolute;
+	left: 250px;
+	top: 8px;
+	border: 1px solid #3385FF;
+}
+.navimg .row .Bdsearch form .Bdss{
+	width: 150px;
+	height: 60px;
+	background: #3385FF;
+	color: white;
+	border: 0px none;
+	font-size: 22px;
+	line-height: 38px;
+	position: absolute;
+	left: 820px;
+	top: 8px;
+}
+/*logo和搜索结束*/
+
+
+/*导航13个TAB标签页开始*/
+.navbq 
+{
+	width: 100%;/* 改变中间DIV页面宽度*/
+	margin: 0 auto;
+	/*height: 200px;*/
+}
+
+#maintab{
+	border: 1px solid #3385FF;
+	border-bottom: none;
+	background: #FFFFFF;/* #9e8e8e 改变TAB底部背景颜色*/
+	border-style: dotted /*设置4边框样式dotted dashed solid outset inset  groove ridge double*/
+}
+
+.tab-pane{/*每一个Tab对应的网页界面设置*/
+	width: 100%;
+	border: 1px solid #3385FF;
+	border-top: none;
+	background: #E0FFFF;
+	border-style:outset
+	
+}
+
+.nav-tabs{    
+	width: 100%;
+	font-size: 26px; /*设置13个Tab里的字体大小*/
+	border-bottom: 1px solid #3385FF;
+	border-style:dashed
+}
+.nav-tabs li{  
+	height:60px; /*列表高度和列表里的文字高度设为一致才能保证不出下划线*/
+	color: #FF0000;/*#F92672 TAB内部的字体颜色*/
+	font-weight: 600;/*字体放大粗细*/
+	transition: 1s;
+	font-size: 80% /*TAB内字体放大倍数*/
+	
+}
+.nav-tabs li a{
+	height:60px;/*列表高度和列表里的文字高度设为一致才能保证不出下划线*/
+	color: #FF0000;/*#F92672 TAB内部的字体颜色*/
+	font-weight: 600;/*字体放大粗细*/
+	transition: 1s;
+	font-size: 80% /*TAB内字体放大倍数*/
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover 
+
+
+.nav-tabs>li>a:hover,
+.nav-tabs>li.active>a:hover{
+	background: #3385FF;
+	color: white;
+}
+/*导航标签页结束*/
+
+/*中间标签页开始*/
+.navbq .row .navbq2 ul{
+	height: 500px; 	/*这个代码是用来固定标签页到底部微信处的高度的  #303030  */
+	width: 100%  /*网址页面宽度*/
+}
+.navbq .row .navbq2 ul li{
+	width: 14.2%; /*列表100除以14*/
+	float: left;
+	display: inline
+}
+.navbq .row .navbq2 ul li a{
+	display: block;
+	width: 100%;/*width: 189px*/
+	height: 45px;
+	text-align: left;
+	font-size: 18px;
+	transition: 1s;
+	font-weight: 500;
+	color: #3385FF;
+}
+.navbq .row .navbq2 ul li a:hover{
+	background: #3385FF;
+	color: white;
+}
+/*中间标签页结束*/
+
+
+/*底部开始*/
+footer{
+	width: 100%;
+	height: 100px;
+	margin: 0 auto;
+	background: #3385FF;
+	margin-top: 100px;
+	margin-bottom: 20px;
+	position: relative;
+}
+footer .xin{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+
+}
+footer .lotus{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 400px;
+	height: 100px;
+	color: white;
+}
+footer .lotus p{
+	margin: 10px 0px;
+}
+/*底部结束*/
+
+
+/*右上角微信开始*/
+.xin{
+	position: fixed;
+	width: 350px;
+	height: 100px;
+	line-height: 100px;
+	background: #3385FF;
+	text-align: center;
+	display: inline-block;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+}
+.xin:after{
+	content: "";
+	position: absolute;
+	left: 350px;
+	top: 0px;
+	z-index: 99;
+	background: url(../img/mackxin.jpg);
+	width: 100px;
+	height: 100px;
+	transform-origin:top left;
+	transform: scale(0);
+	opacity: 0;
+	transition:all 1s;
+}
+.xin:hover:after{
+	transform:scale(1);
+	opacity: 1;
+}
+/*右上角微信结束*/
