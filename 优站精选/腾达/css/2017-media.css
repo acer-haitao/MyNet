@@ -1,0 +1,443 @@
+﻿@media (max-width: 767px) {
+    /*超小设备手机（<768px）*/
+
+body{ font-size: 14px; line-height: 24px;}
+
+.eshop{text-align:center;}
+ .nav-logo { width: 110px;margin-left:5px;  } 
+ .navmenu  {width:100%;margin:0px;padding:0px; }
+  .navmenu li { margin-left:0px;height:30px;line-height:30px;width:25%; text-align:center; }
+ .navmenu li a { font-size: 16px; height: 30px;   } 
+
+#searchresult {  width: 200px; }
+#searchresult  table{  width: 200px;}
+.header-banner-bd { height: auto; }/*banner高度*/ 
+#header-banner .banner-btn{width:50px;display:none;}
+#header-banner .carousel-indicators-wrap{top:auto;bottom:0px;text-align: center;}
+
+ .hnav {   padding:  0;} 
+
+   .homrow4,.homerowpro {padding:0px 0; } 
+
+
+   .group-tips { margin: 0px ; padding: 0 5px 20px 5px } 
+
+.group-tips-list dd {height: auto;  }  
+.group-tips-list span { width: auto; height: 30px; line-height: 30px;  font-size: 14px; margin: 10px 10px 0px 0px ;padding:0 5px;} 
+
+
+.unchecked,.checked{ background:none}
+
+.group-tips-list .group-active-orange { background-color: #f6f6f6; } 
+.group-tips-list .group-active-orange a {  color:red} 
+    
+.footer .bottom{font-size:1em;}
+
+/*home four screen*/
+.homrow3{ padding-bottom:1em; padding-top:2em;}
+.homrow4{ padding:2em 0; background-color:#fff;}
+.subrow4 .caption h3{height:auto;line-height:1.5em; padding:1em; text-align:center;}
+.subrow4 .thumbnail img{width: 100%;}
+.subrow3 .thumbnail img{width: 80%;}
+.row4news li {margin-bottom: 15px;background-color:#fff;}
+.row4news span {display: block;height: 50px; line-height:50px;width: 80px;  background-color:#fff;color:#f60 }
+ .row4news span a{display: block;height: 60px; line-height:60px;width: 60px;}
+
+
+ .row4news ul a.homefaqa  { width: 75%;line-height: 3em; height:3em; overflow:hidden; margin-top:0.4em; padding-top:0px; }
+
+
+ .subrow4 .caption h3{ background-color:#fff; }
+
+
+
+.txtContent h1{ display:none; margin-top:0em;  font-size: 1.4em ! important;padding-bottom: 0em; text-align:left;}
+.txtContent{padding-top:0px; padding-bottom:1.5em;}
+.newsrow {    background: url(../images/2.png) no-repeat left center; height:35px; line-height:35px; }
+
+#ProBox .caption{height:auto;padding-bottom:15px;}
+/*#ProBox .caption h3,#ProBox .caption p  {text-align:center;}*/
+
+ /*vedio*/
+.video-con{position: absolute;top: 0;left:15px;margin:0;width: 100%; height:100%;}
+.video-close{margin-left: -30px;}
+
+.swbanner h3 { margin-top: 0em; text-align:center; }
+.swbanner h4 {  text-align:center; }
+.swbanner{ padding:1em 0; padding-top:0px;}
+.swbanner p { text-align:center;  font-size: 1.0em;  }
+.swbanner .searchHelp { text-align:center; margin:1em auto; }
+.pro_guide_main div strong{  text-align:left; width:80px; }
+.pro_guide_main div ul li a {  padding: 0px 3px; }
+
+
+
+
+
+
+h3.h3result{  line-height:40px; height:40px;  margin:0 10px; }
+h4.h4result{ line-height:40px; height:40px;  margin:0px; }
+.SearchProductList   .searchProdes h3{  height:auto; line-height:40px; text-align:center;}
+  .newslist{ padding:0 10px;}
+
+  #tenda_region .regioncell ul li{ width:100%; padding:0px; overflow:hidden; height:20px; line-height:20px;}
+   #tenda_region .regioncell h2 { font-size: 1em; line-height: 40px; height: 40px;  } 
+ #tenda_region .regioncell ul li a { }
+
+
+  .searchwhere{ padding-top:20px;}
+  .searchwhere select,.searchwhere #btnPartner{ width:100%; }
+  #proTab li a { padding: 0 0.6em; }
+
+  .aboutbg{background:none; padding-top:0px;}
+  .pagecontent { margin-top: 0px; padding:0  1em;  }
+
+  .tenda_histroy dt{ font-size: 1.2em; }
+   .tenda_histroy dt strong{  font-weight:normal; }
+  .serviceHomeRow2 h2 {  margin: 0px 15px; font-size: 1em;  padding: 10px 0; }
+  .serviceHomeRow2 .floorTwoBox { padding: 0 15px; }
+   .serviceHomeRow2,.serviceHomeRow3 { padding: 1em 0; }
+  .floorOneBox { border-right: solid #f0f0f0 0px; margin-top: 30px; }
+  .floorOneBox h3 {  line-height: 50px; font-size: 1em; }
+  .floorOneBox h4 { line-height: 1em; height: 2.4em; font-size: 0.8em; margin-top: 15px;  display:none;}
+  .serviceHomeRow2 ul li {   width: 100%; float: none; display:block; overflow: hidden; }
+    .serviceHomeRow2 ul  {   padding-bottom:25px; }
+    .floorThreeBox { padding: 1em 0; }
+  .hotfaq h4 {line-height: 50px; height: 50px; }
+  .hotfaq {  padding-left: 15px; padding-right: 15px;}
+  .faqdetailleftbox {  padding-left: 15px; padding-right: 15px;}
+  .faqdetailleftbox>h4{ height:auto; line-height:25px;padding-top:1em; padding-bottom:2em;font-size:1.2em; }
+  .faqrow { height: auto; line-height: 35px; background: url(../images/2.png) no-repeat 5px center;  height:35px; padding-left:25px; overflow:hidden; }
+  .table-responsive { width: 100%; margin-bottom: 0px; overflow-y: auto; -ms-overflow-style: -ms-autohiding-scrollbar; border: 0px solid #ddd; }
+ .miniNavBox { float: none; text-align: center; padding:10px 0 }
+ .miniNavBox li { margin-left: 0px;margin-right: 0px; padding:0 5px;height: 20px; line-height: 20px; }
+
+ .pagecontent h3 { font-size: 1.2em; margin-bottom: 0em;}
+ .contactbox h4 { height: auto; line-height: 30px; font-size: 1em; margin-top: 0em; }
+ .contactbox { padding-bottom: 0em; border-bottom: solid 0px #f2f2f2; }
+ .contactbox .col-xs-12{  border-bottom: solid 1px #f2f2f2; padding-bottom: 1em;padding-right: 0px; padding-left: 0px; }
+ .contactbox .col-xs-12 p {  padding-top: 0px;}
+ .prevnext { margin-top: 0em; padding-bottom:1em; }
+ .vedios { padding-bottom: 0em; padding-top: 0em; }
+ a.video_player { background: url(../images/video_btn2.png) center center no-repeat; }
+a.video_player:hover { background: url(../images/video_btn_hover2.png) center center no-repeat; } 
+.vedios .caption p {  height: auto; line-height: 20px; margin-top: 5px; }
+.video-close { margin-left: 10px; width: 15px; height: 15px; background: url(../images/close2.png) center no-repeat;  }
+#closePopSearchBox { right: 0px;  }
+
+.SearchFaqList dd {line-height: 30px; height: auto }
+#serviceSearch { height: 50px; line-height: 50px; }
+   .subrow3 .caption p{  height:auto;}
+
+#tblSupport .col-sm-3 {  padding:0px; margin:0px;  font-size:1.2em; }
+.visiblexssm{ display:inline;}
+
+.btns{ height:35px; width:170px;  }
+.detailbtns{  padding:0px 5px;font-size:0.8em;}
+.buybtns{ padding: 0px 5px; left:70px; font-size:0.8em;  }
+.pro-buy a {width: 80px;height: 15px;line-height: 15px; overflow:hidden;}
+
+
+
+.tab .ht { height: 60px;  line-height: 60px; font-size: 20px;  }
+
+#catanav { height: 100px; line-height:100px;   }
+
+.Filterzone {  line-height: 25px;  } 
+.Filterzone>dl>dd>ul>li { margin-left: 10px; }
+.Filterzone>dl>dd {  display:block;  margin-top:5px; padding-bottom:10px;} 
+
+
+
+/*新产品类别*/
+.procatanav { width: 100%; height: auto;padding-bottom:10px; }
+.procatanav ul { height: auto;line-height: 20px;padding-top:10px;}
+.procatanav li a{ padding-right:10px; padding-left:10px;font-size:12px;  }
+.procatanav .dot { width: 35px; text-align: center; display:none; }
+
+.procatasenav{  height: auto;padding-bottom:10px; }
+.procatasenav ul { height: auto; }
+.procatasenav li { margin-top:8px;  } 
+.procatasenav li a{ font-size:12px; padding:0 10px;  } 
+
+
+.justone h3{  text-align:center;}
+
+
+.SearchFaqList dd{ background-position-y:6px;}
+
+.noflinmbl{ float:none ! important}/*faq中用到*/
+
+
+#ProBox1{margin-top:0px;}
+    .plbox1{width:100%; }
+#ProBox1 .caption { height:auto; padding-bottom:15px; } 
+h2.title { font-size: 20px; text-align:center; }
+
+#ProBox1 .caption p {text-align:center; height:auto; }
+
+.procatanav  { height: auto; background-color:#000;  }
+.procatanav ul {line-height: 25px; height:auto;}
+.procatanav ul li{ height: 25px; line-height: 25px; }
+.procatanav li a:link, .procatanav li a:visited { color: #cecece; }
+
+
+
+
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /*小型设备平板电脑 大于等于768px 小于992px*/
+
+
+body{ font-size: 14px; line-height: 24px;}
+
+.contentbox{font-size:12px}
+
+/*首页banner*/
+.header-banner-bd{height:392px;}
+.header-banner-bd .pc .cell img.b-01{width:991px;margin-left:-495px;}
+.btns{ height:30px; width:180px; }
+.detailbtns{  padding:1px 12px;}
+.buybtns{ padding: 1px 12px; left:100px;  }
+
+
+/*下拉产品菜单*/
+#proHome,#proBusiness{ padding-bottom:1em;}
+
+#proHome .thumbnail,#proBusiness .thumbnail{ padding-top:5px; padding-bottom:0px; margin-bottom:0px;}
+#proHome .caption h3,#proBusiness .caption h3{ padding-bottom:10px;}
+
+
+/*home four screen*/
+.homrow3{ padding-bottom:1em; padding-top:2em;}
+.homrow4{ padding:2em 0;  padding-bottom:3em;}
+
+ .homrow3 h1, .homrow4 h1{ height:3em; line-height:3em; font-size:1.4em;}
+
+
+ 
+.subrow4 .caption {  padding:0px; background-color:#fff; height:3em;overflow:hidden; }
+.subrow4 .caption h3{  line-height:1.2em;font-size:1.0em; height:3em; line-height:3em;  }
+
+.row4news li {margin-bottom: 0.8em; height:50px; overflow:hidden;background-color:#f2f2f2;}
+
+.row4news span {display: block;height: 50px; line-height:50px;width: 100px;font-size: 1.2em; overflow:hidden; background-color:#f2f2f2;color:#f60 }
+  .row4news span a{display: block;height: 50px; line-height:50px;width: 100px;font-size: 1.2em; overflow:hidden; }
+
+.row4news ul a.homefaqa  { width: 80%;font-size:1em; padding-top: 0em;height: 50px; line-height:50px; background-color:#f2f2f2;}
+ .row4news ul a { }
+
+
+
+
+
+ .miniNavBox li {margin-left: 10px;font-size: 0.8em;}
+
+
+
+#ProBox .caption h3 {height:35px; line-height:35px;}
+
+.swbanner h3 {font-size: 1.4em;  margin-top: 1.5em;}
+
+ #tenda_region .regioncell ul li{ width:49%;}
+
+ .searchwhere{ padding-top:20px;}
+ .visiblexssm{ display:inline;}
+ .floorOneBox h3 { line-height: 50px; font-size: 1em; }
+ .floorOneBox {  margin-top:50px; }
+ .serviceHomeRow2 .floorTwoBox { padding: 0 20px; }
+ .serviceHomeRow2 h2 { margin: 0 30px;  }
+ .serviceHomeRow2 ul li {  height: 35px; line-height: 35px; width: 100%; float: none; overflow: hidden;  display:block; background: url(../images/2.png) no-repeat 10px center;  padding-left:40px}
+ #serviceSearch { height: 40px; line-height: 40px;  }
+ .pagecontent h3 {  display:none; }
+
+  .vedios { padding-bottom: 0em; padding-top: 0em; }
+ a.video_player { background: url(../images/video_btn2.png) center center no-repeat; }
+a.video_player:hover { background: url(../images/video_btn_hover2.png) center center no-repeat; } 
+
+.video-close { margin-left: 10px; width: 15px; height: 15px; background: url(../images/close2.png) center no-repeat;  }
+
+.aboutbg { background: url(../images/inbg2.jpg) no-repeat center top; padding-top: 160px; }
+
+
+
+.pro_guide_main div ul li a{ padding: 5px 3px;}
+
+
+
+.IE7 .col-sm-4{width:28%; }
+
+.IE7 .row4news  {  display:block; float:none; width:100% !important;}
+.IE7  .subrow4   .col-sm-6 {   width:45% !important; }
+.IE7 .col-sm-2 img{ }
+.IE7 .nav-drop .col-sm-2{width:12% ! important}
+.IE7 .miniNavBox li {font-size: 0.8em;margin-left: 15px;}
+
+.m-yktNav .u-navsearchUI .box input {  width:70%;  } 
+.m-yktNav .u-navsearchUI .box {  width: 120px; }
+#searchresult {  width: 150px;  position: absolute;font-size:0.8em; left:-16px; }
+.m-yktNav .m-nav .nitem {  padding: 0 10px; }
+
+.u-navcatebtn { padding-right:  0px; }
+
+#catanav { height: 100px; line-height:100px;   }
+
+.Filterzone {  line-height: 25px;  } 
+.Filterzone>dl>dd>ul>li { margin-left: 10px; }
+.Filterzone>dl>dd {  display:block;  margin-top:5px; padding-bottom:10px;}
+.justone h3{ margin-top:2em;}
+
+
+
+
+
+
+
+
+.plbox1{width:233px;  }
+h2.title {  text-align:center;font-size:16px;}
+#ProBox1 .caption { height:79px;  } 
+
+
+
+ .nav-logo { width: 110px;  } 
+
+ .navmenu li { margin-left:15px; }
+    .homrow4,.homerowpro {padding:0px 0; } 
+
+
+    .group-tips {  padding: 0 10px 0px 10px } 
+.group-tips-list dd { height: 50px; } 
+.group-tips-list span { width: 80px; height: 30px; line-height: 30px; font-size: 12px; margin: 10px 5px 0px 0px ;} 
+
+
+.unchecked{ background:url(../images/unchecked.png) no-repeat 1px center;}
+.checked{ background:url(../images/checked.png) no-repeat  1px center;}
+
+
+.tab .ht { height: 40px; line-height: 40px; font-size: 20px;  }
+.serviceHomeRow3 { padding: 2em 0; }
+.center h2 { font-size: 20px; margin-bottom: 10px; }
+.hnav {  padding: 6px 0; }
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /*中型设备台式电脑 大于等于992px  小于1200px*/
+
+
+
+/*首页banner*/
+.header-banner-bd{height:475px;}
+.header-banner-bd .pc .cell img.b-01{width:1200px;margin-left:-600px;}
+.btns{ height:35px; width:190px;  }
+.detailbtns{  padding:1px 12px;}
+.buybtns{ padding: 1px 12px; left:100px;  }
+/* home  news*/
+
+
+/*home four screen*/
+.homrow3{ padding-bottom:3em; padding-top:3em;}
+.homrow4{ padding:3em 0;}
+.subrow4 .caption h3{font-size:1em; height:4em;line-height:4em; padding:0em 0.1em; text-align:center; overflow:hidden;}
+ .homrow3 h1, .homrow4 h1{ height:4em; line-height:4em; font-size:1.6em;}
+
+.row4news li {margin-bottom: 27px;}
+.row4news span {display: block;height: 80px; line-height:80px;width: 80px;font-size: 1.2em; }
+.row4news span a{display: block;height: 80px; line-height:80px;width: 80px;font-size: 1.2em; }
+
+.row4news ul a.homefaqa {  line-height:25px; height:66px; }
+
+
+
+
+
+#ProBox .caption h3 {height:35px; line-height:35px;}
+
+#tblFAQDetail td.faqdetailleft{ border-right:solid 0px #f2f2f2 ;}
+
+ .searchwhere{ padding-top:50px;}
+
+ .m-yktNav .m-nav .nitem {   padding: 0 15px; }
+
+.u-navcatebtn { padding-right:  0px; }
+.m-yktNav .u-navsearchUI .box {  width: 130px; }
+
+#catanav { height: 100px; line-height:100px;   }
+
+
+.pro_guide_main div ul li a{ padding: 5px 12px;}
+
+.Filterzone>dl>dd>ul>li { margin-left: 40px; }
+
+
+
+
+
+.plbox1{width:306px;  }
+#ProBox1 .caption { height:170px;  } 
+
+ .nav-logo { width: 125px;  } 
+
+ .navmenu li { margin-left:30px; }
+    .homrow4,.homerowpro {padding:0px 0; } 
+
+
+
+
+.group-tips-list span {  font-size: 14px;  width: 100px;  } 
+.unchecked{ background:url(../images/unchecked.png) no-repeat 4px center;}
+.checked{ background:url(../images/checked.png) no-repeat  4px center;}
+.hnav {  padding: 6px 0; }
+
+}
+
+
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  
+    /*大型设备台式电脑（≥1200px）*/
+     
+
+    /*首页banner*/
+.header-banner-bd{height:554px;}
+.header-banner-bd .pc .cell img.b-01{width:1400px;margin-left:-700px;}
+
+.btns{ height:35px; width:210px;  }
+.detailbtns{  padding:1px 14px;}
+.buybtns{ padding: 1px 14px; left:110px;  }
+
+
+.faqdetailleft{ border-right:solid 0px #f2f2f2 ! important;}
+
+
+
+ .nav-logo { width: 130px;  } 
+    .homrow4,.homerowpro {padding:20px 0; } 
+
+    .hnav {  padding: 6px 0; }
+}
+
+/*lg*/
+@media (min-width: 1400px) and (max-width: 1499px) {
+	
+.hnav {  padding: 8px 0; }	
+}
+
+@media (min-width: 768px){ 
+
+	html{font-size:12px;}
+}
+
+
+@media (min-width: 1499px) {
+  
+.container{width:1500px;}
+    .homrow4,.homerowpro {padding:40px 0; } 
+     .navmenu li { margin-left:75px; }
+      .nav-logo { width: 250px;  }
+      .plbox1 { width: 482px;  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>萝卜特甜-国内领先的VR+地产解决方案服务商</title>
+    <meta name="author" content="jia">
+    <meta name="copyright" content="萝卜特甜信息科技有限公司">
+    <meta name="date" content="2016">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://www.luobotetian.com/img/logo.png">
+    <style type="text/css">
+        .Absolute-Center {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            display: table;
+            width: 100%;
+            height: auto;
+        }
+
+        .Absolute-Center img {
+            margin: auto;
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .dow {
+            padding: 15px 0px;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            font-family: Microsoft YaHei;
+            font-size: 30px;
+            background: #0D4C6B;
+            color: #fff;
+            text-decoration: none;
+            border: 3px solid #357ebd;
+            cursor: pointer;
+        }
+
+        .dow:hover {
+            background: #1165ae;
+        }
+
+        .dow:active {
+            background: #0d79d5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="Absolute-Center"><a href="http://www.luobotetian.com" target="_self"><img class="center1" src="http://www.luobotetian.com/img/404error.jpg"/></a>
+    <a class="dow" href="http://www.luobotetian.com" target="_self">返回首页</a></div>
+</body>
+</html>

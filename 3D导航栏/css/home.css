@@ -17,8 +17,8 @@
       /* basic menu styles */
       .nav-menu {
         display: block;
-        background: #74adaa;/*#74adaa*/
-        width:950px;/*导航条底部*/
+        background: #000000;/*#74adaa*/
+        width:1950px;/*导航条底部*/
         margin: 50px auto 150px;
       }
       .nav-menu > li {

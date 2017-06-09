@@ -6,46 +6,83 @@
 <link rel="stylesheet" type="text/css" href="css/home.css"/>
 <link rel="stylesheet" href="css/index.css"/>
 <link rel="stylesheet" href="css/reset.css"/>
-    <script>
 
-        var openNub = 0;
+<script>
 
-        var bOff = true;
+    window.onload = function(){
+        
+    var openNub = 0;
 
-        var oLi = null;
+    var bOff = true;
 
-    </script>
+    var oLi = null;
+		
+	var oAudio = document.getElementById('audio');
 
-    <script src="js/json.js"></script>
+    var aAudio = document.getElementsByTagName('audio');
 
-    <script src="js/walkway.min.js"></script>
+    var button = oAudio.getElementsByTagName('div')[0];
 
-    <script src="js/load.js"></script>
+    var oImg = button.getElementsByTagName('img')[0];
 
-    <script src="js/initial.js"></script>
+    var bOff;
 
-    <script src="js/table.js"></script>
-
-    <script src="js/myinfo.js"></script>
-
-    <script src="js/workinfo.js"></script>
-
-    <script src="js/exp2.js"></script>
-
-    <script>
-
-        window.onload = function(){
+    location.href.replace(/audio=(\D+)/,function($1,$2){
 
 
 
-            init();
+        bOff = $2=='true'? true : false;
 
-            load();
 
+
+    });
+
+
+    oAudio.bOff = bOff || false;
+
+    sound();
+
+    oAudio.onclick = sound;
+
+    function sound(){
+
+
+
+        oAudio.bOff = !oAudio.bOff;
+
+        for(var i=0; i<aAudio.length; i++){
+
+
+
+            aAudio[i].muted = oAudio.bOff;
+
+
+
+        }
+
+        if(oAudio.bOff){
+
+
+
+            button.style.webkitTransform = 'translate(0)';
+
+            button.style.transform = 'translate(0)';
+
+            oImg.src = 'images/jingyin.png';
+        }else{
+            button.style.webkitTransform = 'translate(32px)';
+
+            button.style.transform = 'translate(32px)';
+
+            oImg.src = 'images/bofang.png';
+        }
+
+    }
             //自我描述
         };
 
-    </script>
+</script>
+
 </head>
 <body>
 
